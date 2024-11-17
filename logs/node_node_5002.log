@@ -1,0 +1,25 @@
+[2024-11-17 13:17:02,344] [INFO] [Blockchain] Creating genesis block.
+[2024-11-17 13:17:02,344] [DEBUG] [Blockchain] Genesis block created: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-17 13:17:02,344] [DEBUG] [Blockchain] Retrieving peer nodes for 'node_5002'.
+[2024-11-17 13:17:02,345] [DEBUG] [Blockchain] Peer nodes from file: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5003', '127.0.0.1:5004', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5007', '127.0.0.1:5008', '127.0.0.1:5009']
+[2024-11-17 13:17:02,346] [DEBUG] [Blockchain] Loading consensus algorithm: PoWConsensus
+[2024-11-17 13:17:02,346] [INFO] [Blockchain] Consensus algorithm 'PoWConsensus' loaded successfully.
+[2024-11-17 13:17:02,347] [DEBUG] [PoWConsensus] Initialized with DIFFICULTY: 4 and reward: 10
+[2024-11-17 13:17:02,347] [DEBUG] [Blockchain] Initialized reputation_tokens: {'node_5002': 10, 'node_5000': 10, 'node_5001': 10, 'node_5003': 10, 'node_5004': 10, 'node_5005': 10, 'node_5006': 10, 'node_5007': 10, 'node_5008': 10, 'node_5009': 10}
+[2024-11-17 13:17:02,347] [DEBUG] [Blockchain] Initialized with node_id: node_5002, data_dir: node_data\node_node_5002
+[2024-11-17 13:17:02,347] [DEBUG] [Blockchain] Peer nodes: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5003', '127.0.0.1:5004', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5007', '127.0.0.1:5008', '127.0.0.1:5009']
+[2024-11-17 13:17:02,347] [DEBUG] [Blockchain] Consensus algorithm: PoWConsensus
+[2024-11-17 13:17:02,350] [INFO] Starting Flask server on port 5002
+ * Serving Flask app 'app'
+ * Debug mode: on
+[2024-11-17 13:17:02,368] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5002
+[2024-11-17 13:17:02,368] [INFO] [33mPress CTRL+C to quit[0m

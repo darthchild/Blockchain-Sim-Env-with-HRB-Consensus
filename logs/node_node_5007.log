@@ -1,0 +1,170 @@
+[2024-11-17 13:17:07,393] [INFO] [Blockchain] Creating genesis block.
+[2024-11-17 13:17:07,393] [DEBUG] [Blockchain] Genesis block created: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-17 13:17:07,393] [DEBUG] [Blockchain] Retrieving peer nodes for 'node_5007'.
+[2024-11-17 13:17:07,394] [DEBUG] [Blockchain] Peer nodes from file: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5002', '127.0.0.1:5003', '127.0.0.1:5004', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5008', '127.0.0.1:5009']
+[2024-11-17 13:17:07,395] [DEBUG] [Blockchain] Loading consensus algorithm: PoWConsensus
+[2024-11-17 13:17:07,395] [INFO] [Blockchain] Consensus algorithm 'PoWConsensus' loaded successfully.
+[2024-11-17 13:17:07,395] [DEBUG] [PoWConsensus] Initialized with DIFFICULTY: 4 and reward: 10
+[2024-11-17 13:17:07,396] [DEBUG] [Blockchain] Initialized reputation_tokens: {'node_5007': 10, 'node_5000': 10, 'node_5001': 10, 'node_5002': 10, 'node_5003': 10, 'node_5004': 10, 'node_5005': 10, 'node_5006': 10, 'node_5008': 10, 'node_5009': 10}
+[2024-11-17 13:17:07,396] [DEBUG] [Blockchain] Initialized with node_id: node_5007, data_dir: node_data\node_node_5007
+[2024-11-17 13:17:07,396] [DEBUG] [Blockchain] Peer nodes: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5002', '127.0.0.1:5003', '127.0.0.1:5004', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5008', '127.0.0.1:5009']
+[2024-11-17 13:17:07,396] [DEBUG] [Blockchain] Consensus algorithm: PoWConsensus
+[2024-11-17 13:17:07,399] [INFO] Starting Flask server on port 5007
+ * Serving Flask app 'app'
+ * Debug mode: on
+[2024-11-17 13:17:07,415] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5007
+[2024-11-17 13:17:07,415] [INFO] [33mPress CTRL+C to quit[0m
+[2024-11-17 16:51:29,905] [DEBUG] Entered /register endpoint
+[2024-11-17 16:51:29,911] [DEBUG] Received registration data: {'userId': '1694776', 'hashedPassword': 8573954}
+[2024-11-17 16:51:29,912] [INFO] User 1694776 registered successfully.
+[2024-11-17 16:51:29,913] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-17 16:51:29,914] [INFO] [node_select] Initial nonce selected: 6546249 for node_5007
+[2024-11-17 16:51:30,793] [INFO] [node_select] Block mined with hash: 000073d099ee458d736a37e5fa98cb4db55b8a231ca3ebd3075228a6d4a7e194
+[2024-11-17 16:51:30,794] [DEBUG] Broadcasting node selection completion to peers: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5002', '127.0.0.1:5003', '127.0.0.1:5004', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5008', '127.0.0.1:5009'] with consensus_id: node_5007
+[2024-11-17 16:51:30,810] [DEBUG] Entered /select_node endpoint
+[2024-11-17 16:51:30,811] [DEBUG] Received select_node data: {'consensus_id': 'node_5006', 'stop_time': 1731842490.347111}
+[2024-11-17 16:51:30,812] [INFO] Received selection completion notification with ID: node_5006
+[2024-11-17 16:51:30,814] [INFO] [stop_selection] Stopping mining as another node found a block earlier.
+[2024-11-17 16:51:30,817] [INFO] 127.0.0.1 - - [17/Nov/2024 16:51:30] "POST /select_node HTTP/1.1" 200 -
+[2024-11-17 16:51:30,821] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5000
+[2024-11-17 16:51:30,822] [DEBUG] Entered /select_node endpoint
+[2024-11-17 16:51:30,823] [DEBUG] Received select_node data: {'consensus_id': 'node_5004', 'stop_time': 1731842490.2771106}
+[2024-11-17 16:51:30,823] [INFO] Received selection completion notification with ID: node_5004
+[2024-11-17 16:51:30,823] [INFO] [stop_selection] Stopping mining as another node found a block earlier.
+[2024-11-17 16:51:30,824] [DEBUG] Entered /select_node endpoint
+[2024-11-17 16:51:30,825] [INFO] 127.0.0.1 - - [17/Nov/2024 16:51:30] "POST /select_node HTTP/1.1" 200 -
+[2024-11-17 16:51:30,825] [DEBUG] http://127.0.0.1:5000 "POST /select_node HTTP/1.1" 200 34
+[2024-11-17 16:51:30,826] [DEBUG] Received select_node data: {'consensus_id': 'node_5005', 'stop_time': 1731842490.4891105}
+[2024-11-17 16:51:30,826] [INFO] Successfully notified 127.0.0.1:5000 to stop mining.
+[2024-11-17 16:51:30,826] [INFO] Received selection completion notification with ID: node_5005
+[2024-11-17 16:51:30,827] [INFO] [stop_selection] Stopping mining as another node found a block earlier.
+[2024-11-17 16:51:30,827] [INFO] 127.0.0.1 - - [17/Nov/2024 16:51:30] "POST /select_node HTTP/1.1" 200 -
+[2024-11-17 16:51:30,829] [DEBUG] Entered /select_node endpoint
+[2024-11-17 16:51:30,830] [DEBUG] Entered /select_node endpoint
+[2024-11-17 16:51:30,831] [DEBUG] Received select_node data: {'consensus_id': 'node_5008', 'stop_time': 1731842490.2351108}
+[2024-11-17 16:51:30,831] [DEBUG] Received select_node data: {'consensus_id': 'node_5001', 'stop_time': 1731842490.4681108}
+[2024-11-17 16:51:30,832] [INFO] Received selection completion notification with ID: node_5001
+[2024-11-17 16:51:30,831] [INFO] Received selection completion notification with ID: node_5008
+[2024-11-17 16:51:30,831] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5001
+[2024-11-17 16:51:30,832] [INFO] [stop_selection] Stopping mining as another node found a block earlier.
+[2024-11-17 16:51:30,832] [INFO] [stop_selection] Stopping mining as another node found a block earlier.
+[2024-11-17 16:51:30,832] [INFO] 127.0.0.1 - - [17/Nov/2024 16:51:30] "POST /select_node HTTP/1.1" 200 -
+[2024-11-17 16:51:30,833] [INFO] 127.0.0.1 - - [17/Nov/2024 16:51:30] "POST /select_node HTTP/1.1" 200 -
+[2024-11-17 16:51:30,837] [DEBUG] http://127.0.0.1:5001 "POST /select_node HTTP/1.1" 200 34
+[2024-11-17 16:51:30,837] [INFO] Successfully notified 127.0.0.1:5001 to stop mining.
+[2024-11-17 16:51:30,841] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5002
+[2024-11-17 16:51:30,843] [DEBUG] http://127.0.0.1:5002 "POST /select_node HTTP/1.1" 200 34
+[2024-11-17 16:51:30,843] [INFO] Successfully notified 127.0.0.1:5002 to stop mining.
+[2024-11-17 16:51:30,845] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5003
+[2024-11-17 16:51:30,848] [DEBUG] http://127.0.0.1:5003 "POST /select_node HTTP/1.1" 200 34
+[2024-11-17 16:51:30,848] [INFO] Successfully notified 127.0.0.1:5003 to stop mining.
+[2024-11-17 16:51:30,849] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5004
+[2024-11-17 16:51:30,851] [DEBUG] http://127.0.0.1:5004 "POST /select_node HTTP/1.1" 200 34
+[2024-11-17 16:51:30,852] [INFO] Successfully notified 127.0.0.1:5004 to stop mining.
+[2024-11-17 16:51:30,853] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5005
+[2024-11-17 16:51:30,855] [DEBUG] http://127.0.0.1:5005 "POST /select_node HTTP/1.1" 200 34
+[2024-11-17 16:51:30,855] [INFO] Successfully notified 127.0.0.1:5005 to stop mining.
+[2024-11-17 16:51:30,856] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5006
+[2024-11-17 16:51:30,876] [DEBUG] http://127.0.0.1:5006 "POST /select_node HTTP/1.1" 200 34
+[2024-11-17 16:51:30,877] [INFO] Successfully notified 127.0.0.1:5006 to stop mining.
+[2024-11-17 16:51:30,878] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5008
+[2024-11-17 16:51:30,880] [DEBUG] http://127.0.0.1:5008 "POST /select_node HTTP/1.1" 200 34
+[2024-11-17 16:51:30,880] [INFO] Successfully notified 127.0.0.1:5008 to stop mining.
+[2024-11-17 16:51:30,881] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5009
+[2024-11-17 16:51:30,946] [DEBUG] http://127.0.0.1:5009 "POST /select_node HTTP/1.1" 200 34
+[2024-11-17 16:51:30,947] [INFO] Successfully notified 127.0.0.1:5009 to stop mining.
+[2024-11-17 16:51:30,947] [INFO] [node_select] Mining stopped before a valid block was found.
+[2024-11-17 16:51:30,947] [WARNING] [Blockchain] Current node did not mine a block.
+[2024-11-17 16:51:30,947] [DEBUG] None
+[2024-11-17 16:51:30,947] [ERROR] Failed to add registration block.
+[2024-11-17 16:51:30,948] [INFO] 127.0.0.1 - - [17/Nov/2024 16:51:30] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+[2024-11-17 16:51:31,046] [DEBUG] Entered /receive_block endpoint
+[2024-11-17 16:51:31,046] [DEBUG] Received block data: {'user_id': '1694776', 'previous_hash': '45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66', 'transaction': {'action': 'register'}, 'nonce': 6508749, 'commitment': None, 'timestamp': 1731842490.2351108, 'consensus_node': 'node_5008'}
+[2024-11-17 16:51:31,046] [DEBUG] Constructed new block: {
+    "user_id": "1694776",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1731842490.2351108,
+    "nonce": 6508749,
+    "hash": "000023fdbc39934f1d52a38186af042b2f8e9dbfb1a08fd1782551345002b811"
+}
+[2024-11-17 16:51:31,047] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-17 16:51:31,047] [DEBUG] [validate_block] New block data:
+[2024-11-17 16:51:31,047] [DEBUG] {
+    "user_id": "1694776",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1731842490.2351108,
+    "nonce": 6508749,
+    "hash": "000023fdbc39934f1d52a38186af042b2f8e9dbfb1a08fd1782551345002b811"
+}
+[2024-11-17 16:51:31,047] [DEBUG] [validate_block] Last block data:
+[2024-11-17 16:51:31,047] [DEBUG] {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-17 16:51:31,047] [INFO] [validate_block] Block validated. Reputation tokens for node_5008 increased by 10.
+[2024-11-17 16:51:31,047] [INFO] [process_new_block] Block added by 1694776 to the blockchain.
+[2024-11-17 16:51:31,047] [DEBUG] [process_new_block] Updated reputation tokens: {'node_5007': 10, 'node_5000': 10, 'node_5001': 10, 'node_5002': 10, 'node_5003': 10, 'node_5004': 10, 'node_5005': 10, 'node_5006': 10, 'node_5008': 20, 'node_5009': 10}
+[2024-11-17 16:51:31,047] [DEBUG] [Blockchain] Updating metrics with new block: {
+    "user_id": "1694776",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1731842490.2351108,
+    "nonce": 6508749,
+    "hash": "000023fdbc39934f1d52a38186af042b2f8e9dbfb1a08fd1782551345002b811"
+}
+[2024-11-17 16:51:31,047] [DEBUG] [Blockchain] Block time: 1731842489.2351108 seconds.
+[2024-11-17 16:51:31,047] [DEBUG] [Blockchain] Transactions per block updated: [1]
+[2024-11-17 16:51:31,047] [DEBUG] [Blockchain] Block size: 293 bytes.
+[2024-11-17 16:51:31,047] [DEBUG] [Blockchain] Total blockchain size: 293 bytes.
+[2024-11-17 16:51:31,047] [DEBUG] [Blockchain] Current difficulty: 4
+[2024-11-17 16:51:31,047] [INFO] Block added successfully from node node_5008.
+[2024-11-17 16:51:31,047] [INFO] 127.0.0.1 - - [17/Nov/2024 16:51:31] "POST /receive_block HTTP/1.1" 200 -
+[2024-11-17 16:51:31,083] [DEBUG] Entered /initiate_zkp endpoint
+[2024-11-17 16:51:31,083] [DEBUG] Received initiate_zkp data: {'userId': '1694776', 'T': 6}
+[2024-11-17 16:51:31,083] [INFO] Commitment T stored for user 1694776.
+[2024-11-17 16:51:31,084] [INFO] 127.0.0.1 - - [17/Nov/2024 16:51:31] "POST /initiate_zkp HTTP/1.1" 200 -
+[2024-11-17 16:51:31,110] [DEBUG] Entered /verify_zkp endpoint
+[2024-11-17 16:51:31,110] [DEBUG] Received verify_zkp data: {'userId': '1694776', 's': 9, 'challenge': 6}
+[2024-11-17 16:51:31,110] [INFO] ZKP verified for user 1694776. Token issued: {'user_id': '1694776', 'node_id': '127.0.0.1:5007', 'exp': datetime.datetime(2024, 11, 17, 11, 26, 31, 110008)}
+[2024-11-17 16:51:31,111] [INFO] 127.0.0.1 - - [17/Nov/2024 16:51:31] "POST /verify_zkp HTTP/1.1" 200 -
