@@ -1,5 +1,6 @@
-[2024-11-17 13:17:02,344] [INFO] [Blockchain] Creating genesis block.
-[2024-11-17 13:17:02,344] [DEBUG] [Blockchain] Genesis block created: {
+[2024-11-18 04:18:40,488] [DEBUG] [Blockchain] Initialized reputation_tokens with random values: {'node_5002': 56, 'node_5000': 76, 'node_5001': 75, 'node_5003': 90, 'node_5004': 50, 'node_5005': 84, 'node_5006': 60, 'node_5007': 82, 'node_5008': 51, 'node_5009': 68}
+[2024-11-18 04:18:40,488] [INFO] [Blockchain] Creating genesis block.
+[2024-11-18 04:18:40,488] [DEBUG] [Blockchain] Genesis block created: {
     "user_id": "genesis",
     "previous_hash": "0",
     "transaction": "Genesis Block",
@@ -8,18 +9,51 @@
     "nonce": "nonce",
     "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
 }
-[2024-11-17 13:17:02,344] [DEBUG] [Blockchain] Retrieving peer nodes for 'node_5002'.
-[2024-11-17 13:17:02,345] [DEBUG] [Blockchain] Peer nodes from file: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5003', '127.0.0.1:5004', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5007', '127.0.0.1:5008', '127.0.0.1:5009']
-[2024-11-17 13:17:02,346] [DEBUG] [Blockchain] Loading consensus algorithm: PoWConsensus
-[2024-11-17 13:17:02,346] [INFO] [Blockchain] Consensus algorithm 'PoWConsensus' loaded successfully.
-[2024-11-17 13:17:02,347] [DEBUG] [PoWConsensus] Initialized with DIFFICULTY: 4 and reward: 10
-[2024-11-17 13:17:02,347] [DEBUG] [Blockchain] Initialized reputation_tokens: {'node_5002': 10, 'node_5000': 10, 'node_5001': 10, 'node_5003': 10, 'node_5004': 10, 'node_5005': 10, 'node_5006': 10, 'node_5007': 10, 'node_5008': 10, 'node_5009': 10}
-[2024-11-17 13:17:02,347] [DEBUG] [Blockchain] Initialized with node_id: node_5002, data_dir: node_data\node_node_5002
-[2024-11-17 13:17:02,347] [DEBUG] [Blockchain] Peer nodes: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5003', '127.0.0.1:5004', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5007', '127.0.0.1:5008', '127.0.0.1:5009']
-[2024-11-17 13:17:02,347] [DEBUG] [Blockchain] Consensus algorithm: PoWConsensus
-[2024-11-17 13:17:02,350] [INFO] Starting Flask server on port 5002
+[2024-11-18 04:18:40,488] [DEBUG] [Blockchain] Retrieving peer nodes for 'node_5002'.
+[2024-11-18 04:18:40,488] [DEBUG] [Blockchain] Peer nodes from file: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5003', '127.0.0.1:5004', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5007', '127.0.0.1:5008', '127.0.0.1:5009']
+[2024-11-18 04:18:40,489] [DEBUG] [Blockchain] Loading consensus algorithm: HRBC
+[2024-11-18 04:18:40,490] [DEBUG] [HRBC] Node properties initialized: {'node_5002': {'uptime': 0.94239706646714, 'network_proximity': 0.38454707277882727}, 'node_5000': {'uptime': 0.9846185984742197, 'network_proximity': 0.7935406247880862}, 'node_5001': {'uptime': 0.984175089961293, 'network_proximity': 0.24197020597607666}, 'node_5003': {'uptime': 0.9616651876139461, 'network_proximity': 0.015183022577771599}, 'node_5004': {'uptime': 0.9190352449133564, 'network_proximity': 0.06514178157761985}, 'node_5005': {'uptime': 0.9500041909768341, 'network_proximity': 0.3595992120001521}, 'node_5006': {'uptime': 0.9641484756617658, 'network_proximity': 0.2925079793688783}, 'node_5007': {'uptime': 0.9171306515192597, 'network_proximity': 0.6745519351171022}, 'node_5008': {'uptime': 0.9581262748824947, 'network_proximity': 0.9759348173842316}, 'node_5009': {'uptime': 0.9518666045826555, 'network_proximity': 0.5378848314604654}}
+[2024-11-18 04:18:40,490] [DEBUG] [HRBC] Clusters formed based on network proximity: {0: ['node_5003', 'node_5004', 'node_5001'], 1: ['node_5006', 'node_5005', 'node_5002'], 2: ['node_5009', 'node_5007', 'node_5000', 'node_5008']}
+[2024-11-18 04:18:40,490] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5003', 1: 'node_5005', 2: 'node_5007'}
+[2024-11-18 04:18:40,490] [DEBUG] [HRBC] Super node elected: node_5003
+[2024-11-18 04:18:40,490] [DEBUG] [Blockchain] Initialized with node_id: node_5002, data_dir: node_data\node_node_5002
+[2024-11-18 04:18:40,490] [DEBUG] [Blockchain] Peer nodes: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5003', '127.0.0.1:5004', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5007', '127.0.0.1:5008', '127.0.0.1:5009']
+[2024-11-18 04:18:40,490] [DEBUG] [Blockchain] Consensus algorithm: HRBC
+[2024-11-18 04:18:40,493] [INFO] Starting Flask server on port 5002
  * Serving Flask app 'app'
  * Debug mode: on
-[2024-11-17 13:17:02,368] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+[2024-11-18 04:18:40,510] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5002
-[2024-11-17 13:17:02,368] [INFO] [33mPress CTRL+C to quit[0m
+[2024-11-18 04:18:40,510] [INFO] [33mPress CTRL+C to quit[0m
+[2024-11-18 04:18:57,013] [DEBUG] Entered /register endpoint
+[2024-11-18 04:18:57,016] [DEBUG] Received registration data: {'userId': '5183936', 'hashedPassword': 8616173}
+[2024-11-18 04:18:57,016] [INFO] User 5183936 registered successfully.
+[2024-11-18 04:18:57,016] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-18 04:18:57,016] [WARNING] [Blockchain] Consensus failed or block creation failed.
+[2024-11-18 04:18:57,016] [DEBUG] None
+[2024-11-18 04:18:57,016] [ERROR] Failed to add registration block.
+[2024-11-18 04:18:57,017] [INFO] 127.0.0.1 - - [18/Nov/2024 04:18:57] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+[2024-11-18 04:21:49,946] [DEBUG] Entered /register endpoint
+[2024-11-18 04:21:49,947] [DEBUG] Received registration data: {'userId': '7734173', 'hashedPassword': 1342513}
+[2024-11-18 04:21:49,947] [INFO] User 7734173 registered successfully.
+[2024-11-18 04:21:49,947] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-18 04:21:49,947] [WARNING] [Blockchain] Consensus failed or block creation failed.
+[2024-11-18 04:21:49,947] [DEBUG] None
+[2024-11-18 04:21:49,947] [ERROR] Failed to add registration block.
+[2024-11-18 04:21:49,948] [INFO] 127.0.0.1 - - [18/Nov/2024 04:21:49] "[35m[1mPOST /register HTTP/1.1[0m" 500 -

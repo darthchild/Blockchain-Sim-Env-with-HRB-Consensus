@@ -1,0 +1,59 @@
+[2024-11-18 04:18:42,521] [DEBUG] [Blockchain] Initialized reputation_tokens with random values: {'node_5004': 87, 'node_5000': 73, 'node_5001': 84, 'node_5002': 56, 'node_5003': 61, 'node_5005': 87, 'node_5006': 95, 'node_5007': 63, 'node_5008': 70, 'node_5009': 75}
+[2024-11-18 04:18:42,521] [INFO] [Blockchain] Creating genesis block.
+[2024-11-18 04:18:42,521] [DEBUG] [Blockchain] Genesis block created: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-18 04:18:42,521] [DEBUG] [Blockchain] Retrieving peer nodes for 'node_5004'.
+[2024-11-18 04:18:42,521] [DEBUG] [Blockchain] Peer nodes from file: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5002', '127.0.0.1:5003', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5007', '127.0.0.1:5008', '127.0.0.1:5009']
+[2024-11-18 04:18:42,522] [DEBUG] [Blockchain] Loading consensus algorithm: HRBC
+[2024-11-18 04:18:42,522] [DEBUG] [HRBC] Node properties initialized: {'node_5004': {'uptime': 0.9344325736782819, 'network_proximity': 0.5094279986807445}, 'node_5000': {'uptime': 0.9266280169372543, 'network_proximity': 0.32458305122410247}, 'node_5001': {'uptime': 0.9719357314961667, 'network_proximity': 0.2932843909597218}, 'node_5002': {'uptime': 0.9178827073167275, 'network_proximity': 0.9768338839365589}, 'node_5003': {'uptime': 0.9729920241454574, 'network_proximity': 0.8283410760369274}, 'node_5005': {'uptime': 0.9921576718587487, 'network_proximity': 0.3842741559068108}, 'node_5006': {'uptime': 0.9687206520069138, 'network_proximity': 0.6149244215256536}, 'node_5007': {'uptime': 0.9370370087331793, 'network_proximity': 0.3720838443282839}, 'node_5008': {'uptime': 0.9900492139451033, 'network_proximity': 0.1728299643822202}, 'node_5009': {'uptime': 0.988746117499759, 'network_proximity': 0.46542131383808105}}
+[2024-11-18 04:18:42,522] [DEBUG] [HRBC] Clusters formed based on network proximity: {0: ['node_5008', 'node_5001', 'node_5000'], 1: ['node_5007', 'node_5005', 'node_5009'], 2: ['node_5004', 'node_5006', 'node_5003', 'node_5002']}
+[2024-11-18 04:18:42,522] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5001', 1: 'node_5005', 2: 'node_5006'}
+[2024-11-18 04:18:42,522] [DEBUG] [HRBC] Super node elected: node_5006
+[2024-11-18 04:18:42,522] [DEBUG] [Blockchain] Initialized with node_id: node_5004, data_dir: node_data\node_node_5004
+[2024-11-18 04:18:42,522] [DEBUG] [Blockchain] Peer nodes: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5002', '127.0.0.1:5003', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5007', '127.0.0.1:5008', '127.0.0.1:5009']
+[2024-11-18 04:18:42,522] [DEBUG] [Blockchain] Consensus algorithm: HRBC
+[2024-11-18 04:18:42,526] [INFO] Starting Flask server on port 5004
+ * Serving Flask app 'app'
+ * Debug mode: on
+[2024-11-18 04:18:42,542] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5004
+[2024-11-18 04:18:42,542] [INFO] [33mPress CTRL+C to quit[0m
+[2024-11-18 04:18:57,020] [DEBUG] Entered /register endpoint
+[2024-11-18 04:18:57,020] [DEBUG] Received registration data: {'userId': '5183936', 'hashedPassword': 8616173}
+[2024-11-18 04:18:57,021] [INFO] User 5183936 registered successfully.
+[2024-11-18 04:18:57,021] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-18 04:18:57,021] [WARNING] [Blockchain] Consensus failed or block creation failed.
+[2024-11-18 04:18:57,021] [DEBUG] None
+[2024-11-18 04:18:57,021] [ERROR] Failed to add registration block.
+[2024-11-18 04:18:57,021] [INFO] 127.0.0.1 - - [18/Nov/2024 04:18:57] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+[2024-11-18 04:21:49,972] [DEBUG] Entered /register endpoint
+[2024-11-18 04:21:49,972] [DEBUG] Received registration data: {'userId': '7734173', 'hashedPassword': 1342513}
+[2024-11-18 04:21:49,972] [INFO] User 7734173 registered successfully.
+[2024-11-18 04:21:49,973] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-18 04:21:49,973] [WARNING] [Blockchain] Consensus failed or block creation failed.
+[2024-11-18 04:21:49,973] [DEBUG] None
+[2024-11-18 04:21:49,973] [ERROR] Failed to add registration block.
+[2024-11-18 04:21:49,973] [INFO] 127.0.0.1 - - [18/Nov/2024 04:21:49] "[35m[1mPOST /register HTTP/1.1[0m" 500 -

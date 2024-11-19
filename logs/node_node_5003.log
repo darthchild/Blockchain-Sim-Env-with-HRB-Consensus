@@ -1,5 +1,6 @@
-[2024-11-17 13:17:03,319] [INFO] [Blockchain] Creating genesis block.
-[2024-11-17 13:17:03,319] [DEBUG] [Blockchain] Genesis block created: {
+[2024-11-18 04:18:41,555] [DEBUG] [Blockchain] Initialized reputation_tokens with random values: {'node_5003': 91, 'node_5000': 69, 'node_5001': 72, 'node_5002': 97, 'node_5004': 87, 'node_5005': 91, 'node_5006': 82, 'node_5007': 83, 'node_5008': 89, 'node_5009': 86}
+[2024-11-18 04:18:41,555] [INFO] [Blockchain] Creating genesis block.
+[2024-11-18 04:18:41,555] [DEBUG] [Blockchain] Genesis block created: {
     "user_id": "genesis",
     "previous_hash": "0",
     "transaction": "Genesis Block",
@@ -8,18 +9,65 @@
     "nonce": "nonce",
     "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
 }
-[2024-11-17 13:17:03,319] [DEBUG] [Blockchain] Retrieving peer nodes for 'node_5003'.
-[2024-11-17 13:17:03,320] [DEBUG] [Blockchain] Peer nodes from file: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5002', '127.0.0.1:5004', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5007', '127.0.0.1:5008', '127.0.0.1:5009']
-[2024-11-17 13:17:03,321] [DEBUG] [Blockchain] Loading consensus algorithm: PoWConsensus
-[2024-11-17 13:17:03,321] [INFO] [Blockchain] Consensus algorithm 'PoWConsensus' loaded successfully.
-[2024-11-17 13:17:03,321] [DEBUG] [PoWConsensus] Initialized with DIFFICULTY: 4 and reward: 10
-[2024-11-17 13:17:03,322] [DEBUG] [Blockchain] Initialized reputation_tokens: {'node_5003': 10, 'node_5000': 10, 'node_5001': 10, 'node_5002': 10, 'node_5004': 10, 'node_5005': 10, 'node_5006': 10, 'node_5007': 10, 'node_5008': 10, 'node_5009': 10}
-[2024-11-17 13:17:03,322] [DEBUG] [Blockchain] Initialized with node_id: node_5003, data_dir: node_data\node_node_5003
-[2024-11-17 13:17:03,322] [DEBUG] [Blockchain] Peer nodes: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5002', '127.0.0.1:5004', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5007', '127.0.0.1:5008', '127.0.0.1:5009']
-[2024-11-17 13:17:03,322] [DEBUG] [Blockchain] Consensus algorithm: PoWConsensus
-[2024-11-17 13:17:03,325] [INFO] Starting Flask server on port 5003
+[2024-11-18 04:18:41,555] [DEBUG] [Blockchain] Retrieving peer nodes for 'node_5003'.
+[2024-11-18 04:18:41,556] [DEBUG] [Blockchain] Peer nodes from file: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5002', '127.0.0.1:5004', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5007', '127.0.0.1:5008', '127.0.0.1:5009']
+[2024-11-18 04:18:41,556] [DEBUG] [Blockchain] Loading consensus algorithm: HRBC
+[2024-11-18 04:18:41,556] [DEBUG] [HRBC] Node properties initialized: {'node_5003': {'uptime': 0.9532310732032334, 'network_proximity': 0.19122349730882926}, 'node_5000': {'uptime': 0.9321134059860682, 'network_proximity': 0.6894073862503625}, 'node_5001': {'uptime': 0.9570685694417765, 'network_proximity': 0.278540451585528}, 'node_5002': {'uptime': 0.904858933473374, 'network_proximity': 0.9367184429482066}, 'node_5004': {'uptime': 0.9007239640182957, 'network_proximity': 0.06376179300645368}, 'node_5005': {'uptime': 0.9343272917320629, 'network_proximity': 0.8400491446614242}, 'node_5006': {'uptime': 0.9989160437708868, 'network_proximity': 0.6817084599243276}, 'node_5007': {'uptime': 0.9867647760691309, 'network_proximity': 0.851670442816243}, 'node_5008': {'uptime': 0.9722229199394782, 'network_proximity': 0.7781301658437418}, 'node_5009': {'uptime': 0.9650277605388369, 'network_proximity': 0.3200132987231975}}
+[2024-11-18 04:18:41,556] [DEBUG] [HRBC] Clusters formed based on network proximity: {0: ['node_5004', 'node_5003', 'node_5001'], 1: ['node_5009', 'node_5006', 'node_5000'], 2: ['node_5008', 'node_5005', 'node_5007', 'node_5002']}
+[2024-11-18 04:18:41,557] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5003', 1: 'node_5009', 2: 'node_5002'}
+[2024-11-18 04:18:41,557] [DEBUG] [HRBC] Super node elected: node_5002
+[2024-11-18 04:18:41,557] [DEBUG] [Blockchain] Initialized with node_id: node_5003, data_dir: node_data\node_node_5003
+[2024-11-18 04:18:41,557] [DEBUG] [Blockchain] Peer nodes: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5002', '127.0.0.1:5004', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5007', '127.0.0.1:5008', '127.0.0.1:5009']
+[2024-11-18 04:18:41,557] [DEBUG] [Blockchain] Consensus algorithm: HRBC
+[2024-11-18 04:18:41,560] [INFO] Starting Flask server on port 5003
  * Serving Flask app 'app'
  * Debug mode: on
-[2024-11-17 13:17:03,340] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+[2024-11-18 04:18:41,577] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5003
-[2024-11-17 13:17:03,340] [INFO] [33mPress CTRL+C to quit[0m
+[2024-11-18 04:18:41,578] [INFO] [33mPress CTRL+C to quit[0m
+[2024-11-18 04:18:57,013] [DEBUG] Entered /register endpoint
+[2024-11-18 04:18:57,014] [DEBUG] Received registration data: {'userId': '5183936', 'hashedPassword': 8616173}
+[2024-11-18 04:18:57,014] [INFO] User 5183936 registered successfully.
+[2024-11-18 04:18:57,014] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-18 04:18:57,014] [ERROR] Error during registration: 'HRBC' object has no attribute 'perform_inter_cluster_consensus'
+[2024-11-18 04:18:57,015] [DEBUG] Traceback (most recent call last):
+  File "C:\Users\ekagr\Desktop\CODE\BLOCKCHAIN\blockchain project\app.py", line 63, in register
+    new_block, consensus_id = blockchain.add_block(user_id, {"action": "register"}, None)
+  File "C:\Users\ekagr\Desktop\CODE\BLOCKCHAIN\blockchain project\blockchain.py", line 76, in add_block
+    new_block = self.consensus.initiate_consensus(self, user_id, last_block, transaction, commitment)
+  File "C:\Users\ekagr\Desktop\CODE\BLOCKCHAIN\blockchain project\HRBC.py", line 50, in initiate_consensus
+    consensus_result = self.perform_inter_cluster_consensus(blockchain_instance, proposed_block)
+AttributeError: 'HRBC' object has no attribute 'perform_inter_cluster_consensus'
+
+[2024-11-18 04:18:57,016] [INFO] 127.0.0.1 - - [18/Nov/2024 04:18:57] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+[2024-11-18 04:21:49,950] [DEBUG] Entered /register endpoint
+[2024-11-18 04:21:49,950] [DEBUG] Received registration data: {'userId': '7734173', 'hashedPassword': 1342513}
+[2024-11-18 04:21:49,950] [INFO] User 7734173 registered successfully.
+[2024-11-18 04:21:49,950] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-18 04:21:49,950] [ERROR] Error during registration: 'HRBC' object has no attribute 'perform_inter_cluster_consensus'
+[2024-11-18 04:21:49,964] [DEBUG] Traceback (most recent call last):
+  File "C:\Users\ekagr\Desktop\CODE\BLOCKCHAIN\blockchain project\app.py", line 63, in register
+    new_block, consensus_id = blockchain.add_block(user_id, {"action": "register"}, None)
+  File "C:\Users\ekagr\Desktop\CODE\BLOCKCHAIN\blockchain project\blockchain.py", line 76, in add_block
+    new_block = self.consensus.initiate_consensus(self, user_id, last_block, transaction, commitment)
+  File "C:\Users\ekagr\Desktop\CODE\BLOCKCHAIN\blockchain project\HRBC.py", line 50, in initiate_consensus
+    if proposed_block:
+AttributeError: 'HRBC' object has no attribute 'perform_inter_cluster_consensus'
+
+[2024-11-18 04:21:49,964] [INFO] 127.0.0.1 - - [18/Nov/2024 04:21:49] "[35m[1mPOST /register HTTP/1.1[0m" 500 -

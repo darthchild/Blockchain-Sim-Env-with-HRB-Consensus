@@ -8,6 +8,7 @@ import time
 from consensus import Consensus
 from config import P, G, AUTHORIZED_NODES
 import logging
+import random
 import traceback
 
 class Blockchain:
@@ -15,15 +16,16 @@ class Blockchain:
         self.id = node_id
         self.data_dir = data_dir
         os.makedirs(self.data_dir, exist_ok=True)
+        self.reputation_tokens = self.initialize_reputation_tokens()
         self.chain = [self.create_genesis_block()]
         self.peer_nodes = self.get_peer_nodes(node_id)
         self.authorized_nodes = AUTHORIZED_NODES if consensus_algorithm.lower() == 'poa' else []
         self.consensus = self.load_consensus(consensus_algorithm)
+        self.pending_transactions = []  # Initialize empty list for pending transactions
         self.user_db = {}
         self.issued_tokens = {}
         self.p = P
         self.g = G
-        self.reputation_tokens = self.initialize_reputation_tokens()
 
         self.metrics = {
             'block_times': [],               # List to store time taken for each block
@@ -45,22 +47,19 @@ class Blockchain:
         return genesis_block
 
     def load_consensus(self, algorithm):
+        blockchain_instance = self
         logging.debug(f"[Blockchain] Loading consensus algorithm: {algorithm}")
-        class_name = algorithm
-
         try:
-            module = importlib.import_module(f"{algorithm}")
-            consensus_class = getattr(module, class_name, None)
+            module = importlib.import_module(algorithm)  # Import using lowercase
+            consensus_class = getattr(module, algorithm, None)     # Get class directly
             if consensus_class is None:
-                logging.error(f"Consensus class '{class_name}' not found in {algorithm}_consensus")
-                raise ImportError(f"Consensus class '{class_name}' not found in {algorithm}_consensus")
-            logging.info(f"[Blockchain] Consensus algorithm '{class_name}' loaded successfully.")
-            return consensus_class()
+                raise ImportError(f"Consensus class '{algorithm}' not found")
+            return consensus_class(blockchain_instance)          # Pass blockchain instance
         except ImportError as e:
-            logging.error(f"[Blockchain] Failed to load consensus algorithm: {e}")
+            logging.error(f"Failed to load consensus algorithm: {e}")
             raise e
         except Exception as e:
-            logging.error(f"[Blockchain] Unexpected error while loading consensus algorithm: {e}")
+            logging.error(f"Unexpected error loading consensus: {e}")
             raise e
 
     def get_last_block(self):
@@ -70,36 +69,19 @@ class Blockchain:
 
     def add_block(self, user_id, transaction, commitment):
         last_block = self.get_last_block()
-        block_data = {
-            'user_id': user_id,
-            'previous_hash': last_block.hash,
-            'transaction': transaction,
-            'commitment': commitment
-        }
+        if self.pending_transactions: # Check and add pending transactions 
+            transaction = self.pending_transactions
+            self.pending_transactions = []
 
-        try:
-            # Start mining in a separate thread
-            mining_thread = threading.Thread(target=self.consensus.node_select, args=(user_id, last_block, transaction, commitment, block_data, self))
-            mining_thread.start()
-            mining_thread.join()  # Wait for mining to finish
+        new_block = self.consensus.initiate_consensus(self, user_id, last_block, transaction, commitment)
 
-            new_block, consensus_id = self.consensus.node_select_result
-            if new_block is not None:
-                logging.info(f"[Blockchain] New block created by '{consensus_id}': {new_block}")
-                if self.consensus.validate_block(self, new_block, consensus_id):
-                    self.consensus.process_new_block(self, new_block)
-                    logging.info("[Blockchain] Block added to the local chain.")
-                    return new_block, consensus_id
-                else:
-                    logging.error("[Blockchain] Block validation failed.")
-                    return None, None
-            else:
-                logging.warning("[Blockchain] Current node did not mine a block.")
-                return None, None
-        except Exception as e:
-            logging.error(f"[Blockchain] Exception occurred while adding block: {e}")
-            logging.debug(traceback.format_exc())
-            return None, None
+        if new_block:  # Consensus successful
+            self.consensus.process_new_block(self, new_block)  # Use consensus method, NOT blockchain.chain.append()
+            logging.info(f"[Blockchain] Block added by {user_id}")
+            return new_block, self.consensus.last_consensus_id  
+        else:
+            logging.warning("[Blockchain] Consensus failed or block creation failed.")
+            return None, None # Return None, None to signal failure
 
 
     def update_metrics(self, new_block):
@@ -148,14 +130,15 @@ class Blockchain:
             return default_peers
 
     def initialize_reputation_tokens(self):
-        """Initialize reputation tokens dynamically based on peer nodes."""
+        """Initialize reputation tokens dynamically based on peer nodes with random initial values."""
         reputation = {}
-        # Assign initial reputation to self
-        reputation[self.id] = 10
+        
+        # Assign initial reputation to self with a random value
+        reputation[self.id] = random.randint(50, 100)  # Example: self-reputation between 50 and 100
 
         # Define the path to the peers file
         peers_file = os.path.join(self.data_dir, 'peers.txt')
-        
+
         # Check if peers file exists
         if os.path.exists(peers_file):
             with open(peers_file, 'r') as f:
@@ -164,13 +147,16 @@ class Blockchain:
             # Filter out the current node and format peers as node_<port_number>
             peers = [f"node_{peer.split(':')[-1]}" for peer in peers if peer != f"127.0.0.1:{self.id.split('_')[-1]}"]
 
-            # Assign initial reputation to each peer node
+            # Assign random initial reputation to each peer node
             for node in peers:
-                reputation[node] = 10  # Default reputation value for each peer node
+                reputation[node] = random.randint(50, 100)  # Assign random reputation values between 50 and 100
 
-            logging.debug(f"[Blockchain] Initialized reputation_tokens: {reputation}")
+            logging.debug(f"[Blockchain] Initialized reputation_tokens with random values: {reputation}")
         else:
-            logging.debug(f"File does not exist: {peers_file}")
-        
-        return reputation
+            logging.warning(f"[Blockchain] 'peers.txt' not found. Defaulting to a small set of peers.")
+            # Default peer nodes (can be adjusted)
+            default_peers = [f"node_{i}" for i in range(2, 5)]  # Simulate peer IDs for default peers
+            for node in default_peers:
+                reputation[node] = random.randint(50, 100)
 
+        return reputation

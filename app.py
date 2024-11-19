@@ -35,7 +35,7 @@ data_dir = sys.argv[2]
 
 # Initialize the blockchain with unique node_id and data_dir
 node_id = f'node_{port}'
-blockchain = Blockchain(consensus_algorithm='PoWConsensus', node_id=node_id, data_dir=data_dir)
+blockchain = Blockchain(consensus_algorithm='HRBC', node_id=node_id, data_dir=data_dir)
 
 @app.route('/register', methods=['POST'])
 def register():
