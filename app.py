@@ -320,21 +320,35 @@ def set_params():
     return jsonify({"message": "Parameters set successfully"}), 200    
 
 # app.py
+from block import Block  # Make sure Block is imported
+
 @app.route('/vote_on_block', methods=['POST'])
 def vote_on_block():
     try:
         data = request.get_json()
-        block_data = data.get('block') # Get the block data from request
+        block_data = data.get('block')
 
         if block_data:
-            block = Block(**block_data) # Recreate the block instance using kwargs
+            try:
+                # Exclude 'hash' from block_data before creating Block object
+                block_data_without_hash = block_data.copy()  # Create a copy to avoid modifying original data
+                block_data_without_hash.pop('hash', None)  # Safely remove 'hash' if present
+                
+                block = Block(**block_data_without_hash)
+                
+            except TypeError as e:
+                logging.error(f"Error creating block from JSON: {e}, Block Data: {block_data_without_hash}")
+                return jsonify({'error': 'Invalid block data'}), 400
+        else:
+            logging.error("No 'block' data received in request.")
+            return jsonify({'error': 'Invalid request data'}), 400
 
-        vote = blockchain.consensus.vote_on_block(block) # Call the consensus algo's method
+        vote = blockchain.consensus.vote_on_block(block)
         logging.debug(f"Vote requested for block: {block.hash}, Vote: {vote}")
         return jsonify({'vote': vote}), 200
 
     except Exception as e:
-        logging.error(f"Error during voting: {e}")
+        logging.error(f"Error during voting: {e}", exc_info=True)
         return jsonify({'error': str(e)}), 500
     
 

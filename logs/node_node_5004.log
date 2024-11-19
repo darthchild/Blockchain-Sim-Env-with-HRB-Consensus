@@ -1,0 +1,822 @@
+[2024-11-19 16:08:14,840] [DEBUG] [Blockchain] Initialized reputation_tokens with random values: {'node_5004': 92, 'node_5000': 78, 'node_5001': 63, 'node_5002': 61, 'node_5003': 89, 'node_5005': 67, 'node_5006': 54, 'node_5007': 95, 'node_5008': 89, 'node_5009': 82}
+[2024-11-19 16:08:14,841] [INFO] [Blockchain] Creating genesis block.
+[2024-11-19 16:08:14,841] [DEBUG] [Blockchain] Genesis block created: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-19 16:08:14,841] [DEBUG] [Blockchain] Retrieving peer nodes for 'node_5004'.
+[2024-11-19 16:08:14,842] [DEBUG] [Blockchain] Peer nodes from file: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5002', '127.0.0.1:5003', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5007', '127.0.0.1:5008', '127.0.0.1:5009']
+[2024-11-19 16:08:14,842] [DEBUG] [Blockchain] Loading consensus algorithm: HRBC
+[2024-11-19 16:08:14,843] [DEBUG] [HRBC] Node properties initialized: {'node_5004': {'uptime': 0.9389018538206199, 'network_proximity': 0.34592838809887194}, 'node_5000': {'uptime': 0.9147382351147826, 'network_proximity': 0.6634226180642545}, 'node_5001': {'uptime': 0.9650317182484179, 'network_proximity': 0.5254093213734629}, 'node_5002': {'uptime': 0.9884886579142325, 'network_proximity': 0.8323636346280847}, 'node_5003': {'uptime': 0.9422266519590982, 'network_proximity': 0.8404763235221251}, 'node_5005': {'uptime': 0.9239974003409529, 'network_proximity': 0.5580905619541501}, 'node_5006': {'uptime': 0.9614974176158184, 'network_proximity': 0.21372512977628177}, 'node_5007': {'uptime': 0.9821305426684843, 'network_proximity': 0.44328483475949043}, 'node_5008': {'uptime': 0.9886099682469058, 'network_proximity': 0.46413393709655426}, 'node_5009': {'uptime': 0.930750470080552, 'network_proximity': 0.7392139516215698}}
+[2024-11-19 16:08:14,843] [DEBUG] [HRBC] Clusters formed based on network proximity: {0: ['node_5006', 'node_5004', 'node_5007'], 1: ['node_5008', 'node_5001', 'node_5005'], 2: ['node_5000', 'node_5009', 'node_5002', 'node_5003']}
+[2024-11-19 16:08:14,843] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5007', 1: 'node_5008', 2: 'node_5003'}
+[2024-11-19 16:08:14,843] [DEBUG] [HRBC] Super node elected: node_5007
+[2024-11-19 16:08:14,843] [DEBUG] [Blockchain] Initialized with node_id: node_5004, data_dir: node_data\node_node_5004
+[2024-11-19 16:08:14,843] [DEBUG] [Blockchain] Peer nodes: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5002', '127.0.0.1:5003', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5007', '127.0.0.1:5008', '127.0.0.1:5009']
+[2024-11-19 16:08:14,843] [DEBUG] [Blockchain] Consensus algorithm: HRBC
+[2024-11-19 16:08:14,847] [INFO] Starting Flask server on port 5004
+ * Serving Flask app 'app'
+ * Debug mode: on
+[2024-11-19 16:08:14,864] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5004
+[2024-11-19 16:08:14,864] [INFO] [33mPress CTRL+C to quit[0m
+[2024-11-19 16:08:25,019] [DEBUG] Entered /register endpoint
+[2024-11-19 16:08:25,019] [DEBUG] Received registration data: {'userId': '9046513', 'hashedPassword': 6779112}
+[2024-11-19 16:08:25,019] [INFO] User 9046513 registered successfully.
+[2024-11-19 16:08:25,019] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-19 16:08:25,020] [DEBUG] [HRBC] initiate_consensus called: node_id=node_5004, cluster_id=0, transactions={'action': 'register'}
+[2024-11-19 16:08:25,020] [WARNING] [Blockchain] Consensus failed or block creation failed.
+[2024-11-19 16:08:25,020] [DEBUG] None
+[2024-11-19 16:08:25,020] [ERROR] Failed to add registration block.
+[2024-11-19 16:08:25,021] [INFO] 127.0.0.1 - - [19/Nov/2024 16:08:25] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+[2024-11-19 16:08:25,035] [DEBUG] [HRBC] Node node_5004 voted YES on block 36cdd76db9e71fc12df1430acee37bccf3a663b0a26046be0f7f63c84a6789ec
+[2024-11-19 16:08:25,035] [DEBUG] Vote requested for block: 36cdd76db9e71fc12df1430acee37bccf3a663b0a26046be0f7f63c84a6789ec, Vote: True
+[2024-11-19 16:08:25,036] [INFO] 127.0.0.1 - - [19/Nov/2024 16:08:25] "POST /vote_on_block HTTP/1.1" 200 -
+[2024-11-19 16:08:25,041] [DEBUG] [HRBC] Node node_5004 voted YES on block b0f91b70c53061f586322bdbd68ac214d669e0b291c3aac4addf999c0ce4defe
+[2024-11-19 16:08:25,041] [DEBUG] Vote requested for block: b0f91b70c53061f586322bdbd68ac214d669e0b291c3aac4addf999c0ce4defe, Vote: True
+[2024-11-19 16:08:25,042] [INFO] 127.0.0.1 - - [19/Nov/2024 16:08:25] "POST /vote_on_block HTTP/1.1" 200 -
+[2024-11-19 16:08:25,076] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:08:25,076] [DEBUG] Received block data: {'user_id': '9046513', 'previous_hash': '45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012705.0105338, 'consensus_node': 'node_5002'}
+[2024-11-19 16:08:25,077] [DEBUG] Constructed new block: {
+    "user_id": "9046513",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012705.0105338,
+    "nonce": 0,
+    "hash": "89537ea4cb18e73b58a94256e6de21910218908f182d11afa8fafd295c18a098"
+}
+[2024-11-19 16:08:25,077] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-19 16:08:25,077] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5007', 1: 'node_5008', 2: 'node_5003'}
+[2024-11-19 16:08:25,077] [DEBUG] [HRBC] Super node elected: node_5007
+[2024-11-19 16:08:25,077] [ERROR] Invalid block received.
+[2024-11-19 16:08:25,078] [INFO] 127.0.0.1 - - [19/Nov/2024 16:08:25] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:08:25,084] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:08:25,084] [DEBUG] Received block data: {'user_id': '9046513', 'previous_hash': '45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012705.0085354, 'consensus_node': 'node_5000'}
+[2024-11-19 16:08:25,085] [DEBUG] Constructed new block: {
+    "user_id": "9046513",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012705.0085354,
+    "nonce": 0,
+    "hash": "36cdd76db9e71fc12df1430acee37bccf3a663b0a26046be0f7f63c84a6789ec"
+}
+[2024-11-19 16:08:25,085] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-19 16:08:25,085] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5007', 1: 'node_5008', 2: 'node_5003'}
+[2024-11-19 16:08:25,085] [DEBUG] [HRBC] Super node elected: node_5007
+[2024-11-19 16:08:25,085] [ERROR] Invalid block received.
+[2024-11-19 16:08:25,086] [INFO] 127.0.0.1 - - [19/Nov/2024 16:08:25] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:08:25,092] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:08:25,092] [DEBUG] Received block data: {'user_id': '9046513', 'previous_hash': '45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012705.009533, 'consensus_node': 'node_5001'}
+[2024-11-19 16:08:25,092] [DEBUG] Constructed new block: {
+    "user_id": "9046513",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012705.009533,
+    "nonce": 0,
+    "hash": "0155cc01153525f569f72e96a702e3cfa43052ccd690ffe6009b5df3dc9f9ddc"
+}
+[2024-11-19 16:08:25,093] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-19 16:08:25,093] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5007', 1: 'node_5008', 2: 'node_5003'}
+[2024-11-19 16:08:25,093] [DEBUG] [HRBC] Super node elected: node_5007
+[2024-11-19 16:08:25,093] [ERROR] Invalid block received.
+[2024-11-19 16:08:25,093] [INFO] 127.0.0.1 - - [19/Nov/2024 16:08:25] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:08:25,112] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:08:25,112] [DEBUG] Received block data: {'user_id': '9046513', 'previous_hash': '45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012705.028533, 'consensus_node': 'node_5007'}
+[2024-11-19 16:08:25,113] [DEBUG] Constructed new block: {
+    "user_id": "9046513",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012705.028533,
+    "nonce": 0,
+    "hash": "b0f91b70c53061f586322bdbd68ac214d669e0b291c3aac4addf999c0ce4defe"
+}
+[2024-11-19 16:08:25,113] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-19 16:08:25,113] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5004', 1: 'node_5008', 2: 'node_5003'}
+[2024-11-19 16:08:25,113] [DEBUG] [HRBC] Super node elected: node_5004
+[2024-11-19 16:08:25,113] [ERROR] Invalid block received.
+[2024-11-19 16:08:25,114] [INFO] 127.0.0.1 - - [19/Nov/2024 16:08:25] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:08:25,123] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:08:25,123] [DEBUG] Received block data: {'user_id': '9046513', 'previous_hash': '45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012705.035536, 'consensus_node': 'node_5006'}
+[2024-11-19 16:08:25,123] [DEBUG] Constructed new block: {
+    "user_id": "9046513",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012705.035536,
+    "nonce": 0,
+    "hash": "7e647d904c968882c3c604dbe6dd037a7a001008280805923bde22451909be5c"
+}
+[2024-11-19 16:08:25,124] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-19 16:08:25,124] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5004', 1: 'node_5008', 2: 'node_5003'}
+[2024-11-19 16:08:25,124] [DEBUG] [HRBC] Super node elected: node_5004
+[2024-11-19 16:08:25,124] [ERROR] Invalid block received.
+[2024-11-19 16:08:25,126] [INFO] 127.0.0.1 - - [19/Nov/2024 16:08:25] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:08:25,197] [DEBUG] Entered /initiate_zkp endpoint
+[2024-11-19 16:08:25,199] [DEBUG] Received initiate_zkp data: {'userId': '9046513', 'T': 28}
+[2024-11-19 16:08:25,199] [INFO] Commitment T stored for user 9046513.
+[2024-11-19 16:08:25,200] [INFO] 127.0.0.1 - - [19/Nov/2024 16:08:25] "POST /initiate_zkp HTTP/1.1" 200 -
+[2024-11-19 16:08:25,235] [DEBUG] Entered /verify_zkp endpoint
+[2024-11-19 16:08:25,236] [DEBUG] Received verify_zkp data: {'userId': '9046513', 's': 3, 'challenge': 6}
+[2024-11-19 16:08:25,236] [INFO] ZKP verified for user 9046513. Token issued: {'user_id': '9046513', 'node_id': '127.0.0.1:5004', 'exp': datetime.datetime(2024, 11, 19, 10, 43, 25, 236533)}
+[2024-11-19 16:08:25,236] [INFO] 127.0.0.1 - - [19/Nov/2024 16:08:25] "POST /verify_zkp HTTP/1.1" 200 -
+[2024-11-19 16:09:32,717] [DEBUG] Entered /register endpoint
+[2024-11-19 16:09:32,717] [DEBUG] Received registration data: {'userId': '4550692', 'hashedPassword': 3746812}
+[2024-11-19 16:09:32,717] [INFO] User 4550692 registered successfully.
+[2024-11-19 16:09:32,718] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "genesis",
+    "previous_hash": "0",
+    "transaction": "Genesis Block",
+    "commitment": "genesis_commitment",
+    "timestamp": 1,
+    "nonce": "nonce",
+    "hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66"
+}
+[2024-11-19 16:09:32,718] [DEBUG] [HRBC] initiate_consensus called: node_id=node_5004, cluster_id=0, transactions={'action': 'register'}
+[2024-11-19 16:09:32,718] [DEBUG] [HRBC] Proposed block created: {
+    "user_id": "4550692",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.718238,
+    "nonce": 0,
+    "hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18"
+}
+[2024-11-19 16:09:32,722] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5008
+[2024-11-19 16:09:32,726] [DEBUG] [HRBC] Node node_5004 voted YES on block 269dce6739a60f55cc81f868352e898391fae6281053a8c68685fdf810e94741
+[2024-11-19 16:09:32,726] [DEBUG] Vote requested for block: 269dce6739a60f55cc81f868352e898391fae6281053a8c68685fdf810e94741, Vote: True
+[2024-11-19 16:09:32,727] [INFO] 127.0.0.1 - - [19/Nov/2024 16:09:32] "POST /vote_on_block HTTP/1.1" 200 -
+[2024-11-19 16:09:32,728] [DEBUG] http://127.0.0.1:5008 "POST /vote_on_block HTTP/1.1" 200 19
+[2024-11-19 16:09:32,728] [DEBUG] [HRBC] Vote received from node_5008: True
+[2024-11-19 16:09:32,730] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5003
+[2024-11-19 16:09:32,736] [DEBUG] [HRBC] Node node_5004 voted YES on block 6be55a15c76955f1a14eaa059de7ed0cf36063ab2fa4c11daeae1b002515afa3
+[2024-11-19 16:09:32,736] [DEBUG] Vote requested for block: 6be55a15c76955f1a14eaa059de7ed0cf36063ab2fa4c11daeae1b002515afa3, Vote: True
+[2024-11-19 16:09:32,737] [INFO] 127.0.0.1 - - [19/Nov/2024 16:09:32] "POST /vote_on_block HTTP/1.1" 200 -
+[2024-11-19 16:09:32,751] [DEBUG] [HRBC] Node node_5004 voted NO on block 6e582b9420a17f808a631f55d9a877f2fbb857c7e8df3ff8883dc0bcf7a91dc7
+[2024-11-19 16:09:32,751] [DEBUG] Vote requested for block: 6e582b9420a17f808a631f55d9a877f2fbb857c7e8df3ff8883dc0bcf7a91dc7, Vote: False
+[2024-11-19 16:09:32,752] [INFO] 127.0.0.1 - - [19/Nov/2024 16:09:32] "POST /vote_on_block HTTP/1.1" 200 -
+[2024-11-19 16:09:32,752] [DEBUG] http://127.0.0.1:5003 "POST /vote_on_block HTTP/1.1" 200 19
+[2024-11-19 16:09:32,753] [DEBUG] [HRBC] Vote received from node_5003: True
+[2024-11-19 16:09:32,753] [INFO] [HRBC] Inter-cluster consensus achieved.
+[2024-11-19 16:09:32,753] [INFO] [HRBC] Consensus achieved. Block: {
+    "user_id": "4550692",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.718238,
+    "nonce": 0,
+    "hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18"
+}
+[2024-11-19 16:09:32,753] [INFO] [HRBC Consensus] Block added to blockchain: {
+    "user_id": "4550692",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.718238,
+    "nonce": 0,
+    "hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18"
+}
+[2024-11-19 16:09:32,753] [DEBUG] [Blockchain] Updating metrics with new block: {
+    "user_id": "4550692",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.718238,
+    "nonce": 0,
+    "hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18"
+}
+[2024-11-19 16:09:32,753] [DEBUG] [Blockchain] Block time: 1732012771.718238 seconds.
+[2024-11-19 16:09:32,753] [DEBUG] [Blockchain] Transactions per block updated: [1]
+[2024-11-19 16:09:32,753] [DEBUG] [Blockchain] Block size: 286 bytes.
+[2024-11-19 16:09:32,753] [DEBUG] [Blockchain] Total blockchain size: 286 bytes.
+[2024-11-19 16:09:32,754] [DEBUG] [Blockchain] Current difficulty: 0
+[2024-11-19 16:09:32,754] [DEBUG] {
+    "user_id": "4550692",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.718238,
+    "nonce": 0,
+    "hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18"
+}
+[2024-11-19 16:09:32,754] [INFO] New block created: {
+    "user_id": "4550692",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.718238,
+    "nonce": 0,
+    "hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18"
+}
+[2024-11-19 16:09:32,754] [DEBUG] Broadcasting block to peers: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5002', '127.0.0.1:5003', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5007', '127.0.0.1:5008', '127.0.0.1:5009'] with consensus_id: node_5004
+[2024-11-19 16:09:32,755] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5000
+[2024-11-19 16:09:32,764] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:09:32,765] [DEBUG] Received block data: {'user_id': '4550692', 'previous_hash': '89537ea4cb18e73b58a94256e6de21910218908f182d11afa8fafd295c18a098', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012772.718238, 'consensus_node': 'node_5002'}
+[2024-11-19 16:09:32,765] [DEBUG] Constructed new block: {
+    "user_id": "4550692",
+    "previous_hash": "89537ea4cb18e73b58a94256e6de21910218908f182d11afa8fafd295c18a098",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.718238,
+    "nonce": 0,
+    "hash": "c00ac4a60b92e26d19299fa2351c601479dd41029f7825e7fc36a4ca32a04c52"
+}
+[2024-11-19 16:09:32,765] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "4550692",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.718238,
+    "nonce": 0,
+    "hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18"
+}
+[2024-11-19 16:09:32,765] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5004', 1: 'node_5008', 2: 'node_5003'}
+[2024-11-19 16:09:32,765] [DEBUG] [HRBC] Super node elected: node_5004
+[2024-11-19 16:09:32,765] [ERROR] Invalid block received.
+[2024-11-19 16:09:32,766] [INFO] 127.0.0.1 - - [19/Nov/2024 16:09:32] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:09:32,769] [DEBUG] http://127.0.0.1:5000 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:09:32,770] [WARNING] Failed to broadcast block to 127.0.0.1:5000. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:09:32,771] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5001
+[2024-11-19 16:09:32,773] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:09:32,773] [DEBUG] Received block data: {'user_id': '4550692', 'previous_hash': '0155cc01153525f569f72e96a702e3cfa43052ccd690ffe6009b5df3dc9f9ddc', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012772.7162378, 'consensus_node': 'node_5001'}
+[2024-11-19 16:09:32,773] [DEBUG] Constructed new block: {
+    "user_id": "4550692",
+    "previous_hash": "0155cc01153525f569f72e96a702e3cfa43052ccd690ffe6009b5df3dc9f9ddc",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.7162378,
+    "nonce": 0,
+    "hash": "269dce6739a60f55cc81f868352e898391fae6281053a8c68685fdf810e94741"
+}
+[2024-11-19 16:09:32,773] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "4550692",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.718238,
+    "nonce": 0,
+    "hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18"
+}
+[2024-11-19 16:09:32,773] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5004', 1: 'node_5008', 2: 'node_5003'}
+[2024-11-19 16:09:32,773] [DEBUG] [HRBC] Super node elected: node_5004
+[2024-11-19 16:09:32,773] [ERROR] Invalid block received.
+[2024-11-19 16:09:32,774] [INFO] 127.0.0.1 - - [19/Nov/2024 16:09:32] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:09:32,785] [DEBUG] http://127.0.0.1:5001 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:09:32,786] [WARNING] Failed to broadcast block to 127.0.0.1:5001. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:09:32,787] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5002
+[2024-11-19 16:09:32,795] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:09:32,795] [DEBUG] Received block data: {'user_id': '4550692', 'previous_hash': 'b0f91b70c53061f586322bdbd68ac214d669e0b291c3aac4addf999c0ce4defe', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012772.713237, 'consensus_node': 'node_5007'}
+[2024-11-19 16:09:32,796] [DEBUG] Constructed new block: {
+    "user_id": "4550692",
+    "previous_hash": "b0f91b70c53061f586322bdbd68ac214d669e0b291c3aac4addf999c0ce4defe",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.713237,
+    "nonce": 0,
+    "hash": "6be55a15c76955f1a14eaa059de7ed0cf36063ab2fa4c11daeae1b002515afa3"
+}
+[2024-11-19 16:09:32,796] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "4550692",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.718238,
+    "nonce": 0,
+    "hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18"
+}
+[2024-11-19 16:09:32,796] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5004', 1: 'node_5008', 2: 'node_5003'}
+[2024-11-19 16:09:32,796] [DEBUG] [HRBC] Super node elected: node_5004
+[2024-11-19 16:09:32,796] [ERROR] Invalid block received.
+[2024-11-19 16:09:32,796] [INFO] 127.0.0.1 - - [19/Nov/2024 16:09:32] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:09:32,799] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:09:32,800] [DEBUG] Received block data: {'user_id': '4550692', 'previous_hash': '36cdd76db9e71fc12df1430acee37bccf3a663b0a26046be0f7f63c84a6789ec', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012772.713237, 'consensus_node': 'node_5000'}
+[2024-11-19 16:09:32,800] [DEBUG] Constructed new block: {
+    "user_id": "4550692",
+    "previous_hash": "36cdd76db9e71fc12df1430acee37bccf3a663b0a26046be0f7f63c84a6789ec",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.713237,
+    "nonce": 0,
+    "hash": "6e582b9420a17f808a631f55d9a877f2fbb857c7e8df3ff8883dc0bcf7a91dc7"
+}
+[2024-11-19 16:09:32,800] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "4550692",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.718238,
+    "nonce": 0,
+    "hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18"
+}
+[2024-11-19 16:09:32,800] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5004', 1: 'node_5008', 2: 'node_5003'}
+[2024-11-19 16:09:32,801] [DEBUG] [HRBC] Super node elected: node_5004
+[2024-11-19 16:09:32,801] [ERROR] Invalid block received.
+[2024-11-19 16:09:32,801] [INFO] 127.0.0.1 - - [19/Nov/2024 16:09:32] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:09:32,802] [DEBUG] http://127.0.0.1:5002 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:09:32,803] [WARNING] Failed to broadcast block to 127.0.0.1:5002. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:09:32,804] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5003
+[2024-11-19 16:09:32,810] [DEBUG] http://127.0.0.1:5003 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:09:32,810] [WARNING] Failed to broadcast block to 127.0.0.1:5003. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:09:32,811] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5005
+[2024-11-19 16:09:32,814] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:09:32,814] [DEBUG] Received block data: {'user_id': '4550692', 'previous_hash': '7e647d904c968882c3c604dbe6dd037a7a001008280805923bde22451909be5c', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012772.718238, 'consensus_node': 'node_5006'}
+[2024-11-19 16:09:32,815] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:09:32,815] [DEBUG] http://127.0.0.1:5005 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:09:32,815] [DEBUG] Constructed new block: {
+    "user_id": "4550692",
+    "previous_hash": "7e647d904c968882c3c604dbe6dd037a7a001008280805923bde22451909be5c",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.718238,
+    "nonce": 0,
+    "hash": "cc656f2edb330258fb9aacf9a8a966f63769eae020ab57493668ef4aca5ceccf"
+}
+[2024-11-19 16:09:32,816] [WARNING] Failed to broadcast block to 127.0.0.1:5005. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:09:32,816] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "4550692",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.718238,
+    "nonce": 0,
+    "hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18"
+}
+[2024-11-19 16:09:32,816] [DEBUG] Received block data: {'user_id': '4550692', 'previous_hash': '45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012772.717239, 'consensus_node': 'node_5003'}
+[2024-11-19 16:09:32,816] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5004', 1: 'node_5008', 2: 'node_5003'}
+[2024-11-19 16:09:32,817] [DEBUG] [HRBC] Super node elected: node_5004
+[2024-11-19 16:09:32,817] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5006
+[2024-11-19 16:09:32,817] [DEBUG] Constructed new block: {
+    "user_id": "4550692",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.717239,
+    "nonce": 0,
+    "hash": "0a2b32a3937b8309e47a765371deeb99402051c62d5bc88efa0371e1dd3ed5b9"
+}
+[2024-11-19 16:09:32,817] [ERROR] Invalid block received.
+[2024-11-19 16:09:32,818] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "4550692",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.718238,
+    "nonce": 0,
+    "hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18"
+}
+[2024-11-19 16:09:32,818] [INFO] 127.0.0.1 - - [19/Nov/2024 16:09:32] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:09:32,818] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5004', 1: 'node_5008', 2: 'node_5009'}
+[2024-11-19 16:09:32,818] [DEBUG] [HRBC] Super node elected: node_5004
+[2024-11-19 16:09:32,818] [ERROR] Invalid block received.
+[2024-11-19 16:09:32,819] [INFO] 127.0.0.1 - - [19/Nov/2024 16:09:32] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:09:32,822] [DEBUG] http://127.0.0.1:5006 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:09:32,822] [WARNING] Failed to broadcast block to 127.0.0.1:5006. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:09:32,824] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5007
+[2024-11-19 16:09:32,827] [DEBUG] http://127.0.0.1:5007 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:09:32,827] [WARNING] Failed to broadcast block to 127.0.0.1:5007. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:09:32,829] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5008
+[2024-11-19 16:09:32,833] [DEBUG] http://127.0.0.1:5008 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:09:32,833] [WARNING] Failed to broadcast block to 127.0.0.1:5008. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:09:32,835] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5009
+[2024-11-19 16:09:32,840] [DEBUG] http://127.0.0.1:5009 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:09:32,841] [WARNING] Failed to broadcast block to 127.0.0.1:5009. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:09:32,841] [INFO] 127.0.0.1 - - [19/Nov/2024 16:09:32] "POST /register HTTP/1.1" 200 -
+[2024-11-19 16:09:32,892] [DEBUG] Entered /initiate_zkp endpoint
+[2024-11-19 16:09:32,893] [DEBUG] Received initiate_zkp data: {'userId': '4550692', 'T': 5}
+[2024-11-19 16:09:32,893] [INFO] Commitment T stored for user 4550692.
+[2024-11-19 16:09:32,893] [INFO] 127.0.0.1 - - [19/Nov/2024 16:09:32] "POST /initiate_zkp HTTP/1.1" 200 -
+[2024-11-19 16:09:32,912] [DEBUG] Entered /verify_zkp endpoint
+[2024-11-19 16:09:32,913] [DEBUG] Received verify_zkp data: {'userId': '4550692', 's': 5, 'challenge': 10}
+[2024-11-19 16:09:32,913] [INFO] ZKP verified for user 4550692. Token issued: {'user_id': '4550692', 'node_id': '127.0.0.1:5004', 'exp': datetime.datetime(2024, 11, 19, 10, 44, 32, 913240)}
+[2024-11-19 16:09:32,914] [INFO] 127.0.0.1 - - [19/Nov/2024 16:09:32] "POST /verify_zkp HTTP/1.1" 200 -
+[2024-11-19 16:11:49,666] [DEBUG] Entered /register endpoint
+[2024-11-19 16:11:49,666] [DEBUG] Received registration data: {'userId': '8374846', 'hashedPassword': 6585755}
+[2024-11-19 16:11:49,666] [INFO] User 8374846 registered successfully.
+[2024-11-19 16:11:49,666] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "4550692",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012772.718238,
+    "nonce": 0,
+    "hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18"
+}
+[2024-11-19 16:11:49,666] [DEBUG] [HRBC] initiate_consensus called: node_id=node_5004, cluster_id=0, transactions={'action': 'register'}
+[2024-11-19 16:11:49,667] [DEBUG] [HRBC] Proposed block created: {
+    "user_id": "8374846",
+    "previous_hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6677077,
+    "nonce": 0,
+    "hash": "f81b8c262aa0dba6a974e63096ed9abb4a616fefe24605b17590fc6e08767289"
+}
+[2024-11-19 16:11:49,668] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5008
+[2024-11-19 16:11:49,671] [DEBUG] [HRBC] Node node_5004 voted NO on block d72bcd3b72724a71ebe7d76637c31b172f032a71736a81ba6842e97e77a5f0a7
+[2024-11-19 16:11:49,672] [DEBUG] Vote requested for block: d72bcd3b72724a71ebe7d76637c31b172f032a71736a81ba6842e97e77a5f0a7, Vote: False
+[2024-11-19 16:11:49,673] [INFO] 127.0.0.1 - - [19/Nov/2024 16:11:49] "POST /vote_on_block HTTP/1.1" 200 -
+[2024-11-19 16:11:49,673] [DEBUG] http://127.0.0.1:5008 "POST /vote_on_block HTTP/1.1" 200 20
+[2024-11-19 16:11:49,674] [DEBUG] [HRBC] Vote received from node_5008: False
+[2024-11-19 16:11:49,676] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5009
+[2024-11-19 16:11:49,680] [DEBUG] http://127.0.0.1:5009 "POST /vote_on_block HTTP/1.1" 200 19
+[2024-11-19 16:11:49,681] [DEBUG] [HRBC] Vote received from node_5009: True
+[2024-11-19 16:11:49,681] [INFO] [HRBC] Inter-cluster consensus achieved.
+[2024-11-19 16:11:49,681] [INFO] [HRBC] Consensus achieved. Block: {
+    "user_id": "8374846",
+    "previous_hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6677077,
+    "nonce": 0,
+    "hash": "f81b8c262aa0dba6a974e63096ed9abb4a616fefe24605b17590fc6e08767289"
+}
+[2024-11-19 16:11:49,681] [INFO] [HRBC Consensus] Block added to blockchain: {
+    "user_id": "8374846",
+    "previous_hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6677077,
+    "nonce": 0,
+    "hash": "f81b8c262aa0dba6a974e63096ed9abb4a616fefe24605b17590fc6e08767289"
+}
+[2024-11-19 16:11:49,681] [DEBUG] [Blockchain] Updating metrics with new block: {
+    "user_id": "8374846",
+    "previous_hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6677077,
+    "nonce": 0,
+    "hash": "f81b8c262aa0dba6a974e63096ed9abb4a616fefe24605b17590fc6e08767289"
+}
+[2024-11-19 16:11:49,681] [DEBUG] [Blockchain] Block time: 136.94946956634521 seconds.
+[2024-11-19 16:11:49,681] [DEBUG] [Blockchain] Transactions per block updated: [1, 1]
+[2024-11-19 16:11:49,681] [DEBUG] [Blockchain] Block size: 287 bytes.
+[2024-11-19 16:11:49,681] [DEBUG] [Blockchain] Total blockchain size: 573 bytes.
+[2024-11-19 16:11:49,682] [DEBUG] [Blockchain] Current difficulty: 0
+[2024-11-19 16:11:49,682] [DEBUG] {
+    "user_id": "8374846",
+    "previous_hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6677077,
+    "nonce": 0,
+    "hash": "f81b8c262aa0dba6a974e63096ed9abb4a616fefe24605b17590fc6e08767289"
+}
+[2024-11-19 16:11:49,682] [INFO] New block created: {
+    "user_id": "8374846",
+    "previous_hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6677077,
+    "nonce": 0,
+    "hash": "f81b8c262aa0dba6a974e63096ed9abb4a616fefe24605b17590fc6e08767289"
+}
+[2024-11-19 16:11:49,682] [DEBUG] Broadcasting block to peers: ['127.0.0.1:5000', '127.0.0.1:5001', '127.0.0.1:5002', '127.0.0.1:5003', '127.0.0.1:5005', '127.0.0.1:5006', '127.0.0.1:5007', '127.0.0.1:5008', '127.0.0.1:5009'] with consensus_id: node_5004
+[2024-11-19 16:11:49,684] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5000
+[2024-11-19 16:11:49,715] [DEBUG] http://127.0.0.1:5000 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:11:49,716] [WARNING] Failed to broadcast block to 127.0.0.1:5000. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:11:49,718] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5001
+[2024-11-19 16:11:49,725] [DEBUG] http://127.0.0.1:5001 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:11:49,726] [WARNING] Failed to broadcast block to 127.0.0.1:5001. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:11:49,728] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5002
+[2024-11-19 16:11:49,729] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:11:49,729] [DEBUG] Received block data: {'user_id': '8374846', 'previous_hash': '45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012909.6677077, 'consensus_node': 'node_5005'}
+[2024-11-19 16:11:49,730] [DEBUG] Constructed new block: {
+    "user_id": "8374846",
+    "previous_hash": "45c01128a000954fabe165f58e7f58c70fa5860f007c8f70eade6a8ac39a3b66",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6677077,
+    "nonce": 0,
+    "hash": "61435c546885e6254b36587d18e716c8d619065d066a67fe84c2dd3c9b0070d3"
+}
+[2024-11-19 16:11:49,730] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "8374846",
+    "previous_hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6677077,
+    "nonce": 0,
+    "hash": "f81b8c262aa0dba6a974e63096ed9abb4a616fefe24605b17590fc6e08767289"
+}
+[2024-11-19 16:11:49,730] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5004', 1: 'node_5008', 2: 'node_5009'}
+[2024-11-19 16:11:49,730] [DEBUG] [HRBC] Super node elected: node_5004
+[2024-11-19 16:11:49,730] [ERROR] Invalid block received.
+[2024-11-19 16:11:49,731] [INFO] 127.0.0.1 - - [19/Nov/2024 16:11:49] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:11:49,731] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:11:49,731] [DEBUG] Received block data: {'user_id': '8374846', 'previous_hash': '6e582b9420a17f808a631f55d9a877f2fbb857c7e8df3ff8883dc0bcf7a91dc7', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012909.6607087, 'consensus_node': 'node_5000'}
+[2024-11-19 16:11:49,732] [DEBUG] Constructed new block: {
+    "user_id": "8374846",
+    "previous_hash": "6e582b9420a17f808a631f55d9a877f2fbb857c7e8df3ff8883dc0bcf7a91dc7",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6607087,
+    "nonce": 0,
+    "hash": "40058b6b2dca3f61281fdfbbfa50e1569380a61e79bc4daa017534a97ab7c4a0"
+}
+[2024-11-19 16:11:49,732] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "8374846",
+    "previous_hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6677077,
+    "nonce": 0,
+    "hash": "f81b8c262aa0dba6a974e63096ed9abb4a616fefe24605b17590fc6e08767289"
+}
+[2024-11-19 16:11:49,732] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5004', 1: 'node_5008', 2: 'node_5009'}
+[2024-11-19 16:11:49,732] [DEBUG] [HRBC] Super node elected: node_5004
+[2024-11-19 16:11:49,732] [ERROR] Invalid block received.
+[2024-11-19 16:11:49,732] [INFO] 127.0.0.1 - - [19/Nov/2024 16:11:49] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:11:49,735] [DEBUG] http://127.0.0.1:5002 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:11:49,736] [WARNING] Failed to broadcast block to 127.0.0.1:5002. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:11:49,738] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:11:49,739] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5003
+[2024-11-19 16:11:49,739] [DEBUG] Received block data: {'user_id': '8374846', 'previous_hash': 'c00ac4a60b92e26d19299fa2351c601479dd41029f7825e7fc36a4ca32a04c52', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012909.6657073, 'consensus_node': 'node_5002'}
+[2024-11-19 16:11:49,740] [DEBUG] Constructed new block: {
+    "user_id": "8374846",
+    "previous_hash": "c00ac4a60b92e26d19299fa2351c601479dd41029f7825e7fc36a4ca32a04c52",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6657073,
+    "nonce": 0,
+    "hash": "acb5f8c4f1eff61a1d66975a1e046ec6d8a74d0732ded110af95c3e02fb074e6"
+}
+[2024-11-19 16:11:49,740] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "8374846",
+    "previous_hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6677077,
+    "nonce": 0,
+    "hash": "f81b8c262aa0dba6a974e63096ed9abb4a616fefe24605b17590fc6e08767289"
+}
+[2024-11-19 16:11:49,740] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5004', 1: 'node_5008', 2: 'node_5009'}
+[2024-11-19 16:11:49,740] [DEBUG] [HRBC] Super node elected: node_5004
+[2024-11-19 16:11:49,741] [ERROR] Invalid block received.
+[2024-11-19 16:11:49,741] [INFO] 127.0.0.1 - - [19/Nov/2024 16:11:49] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:11:49,743] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:11:49,743] [DEBUG] Received block data: {'user_id': '8374846', 'previous_hash': '269dce6739a60f55cc81f868352e898391fae6281053a8c68685fdf810e94741', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012909.6657073, 'consensus_node': 'node_5001'}
+[2024-11-19 16:11:49,744] [DEBUG] Constructed new block: {
+    "user_id": "8374846",
+    "previous_hash": "269dce6739a60f55cc81f868352e898391fae6281053a8c68685fdf810e94741",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6657073,
+    "nonce": 0,
+    "hash": "46b7a600cb159a31d400cd230920368b1c46b89741e9aa11de9175e1f3b46429"
+}
+[2024-11-19 16:11:49,744] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "8374846",
+    "previous_hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6677077,
+    "nonce": 0,
+    "hash": "f81b8c262aa0dba6a974e63096ed9abb4a616fefe24605b17590fc6e08767289"
+}
+[2024-11-19 16:11:49,745] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5004', 1: 'node_5008', 2: 'node_5009'}
+[2024-11-19 16:11:49,745] [DEBUG] [HRBC] Super node elected: node_5004
+[2024-11-19 16:11:49,745] [ERROR] Invalid block received.
+[2024-11-19 16:11:49,746] [INFO] 127.0.0.1 - - [19/Nov/2024 16:11:49] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:11:49,747] [DEBUG] http://127.0.0.1:5003 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:11:49,747] [WARNING] Failed to broadcast block to 127.0.0.1:5003. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:11:49,749] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5005
+[2024-11-19 16:11:49,753] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:11:49,753] [DEBUG] Received block data: {'user_id': '8374846', 'previous_hash': '6be55a15c76955f1a14eaa059de7ed0cf36063ab2fa4c11daeae1b002515afa3', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012909.6677077, 'consensus_node': 'node_5007'}
+[2024-11-19 16:11:49,753] [DEBUG] Constructed new block: {
+    "user_id": "8374846",
+    "previous_hash": "6be55a15c76955f1a14eaa059de7ed0cf36063ab2fa4c11daeae1b002515afa3",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6677077,
+    "nonce": 0,
+    "hash": "d72bcd3b72724a71ebe7d76637c31b172f032a71736a81ba6842e97e77a5f0a7"
+}
+[2024-11-19 16:11:49,753] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "8374846",
+    "previous_hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6677077,
+    "nonce": 0,
+    "hash": "f81b8c262aa0dba6a974e63096ed9abb4a616fefe24605b17590fc6e08767289"
+}
+[2024-11-19 16:11:49,754] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5004', 1: 'node_5008', 2: 'node_5009'}
+[2024-11-19 16:11:49,754] [DEBUG] [HRBC] Super node elected: node_5004
+[2024-11-19 16:11:49,754] [ERROR] Invalid block received.
+[2024-11-19 16:11:49,754] [INFO] 127.0.0.1 - - [19/Nov/2024 16:11:49] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:11:49,759] [DEBUG] http://127.0.0.1:5005 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:11:49,760] [WARNING] Failed to broadcast block to 127.0.0.1:5005. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:11:49,761] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5006
+[2024-11-19 16:11:49,767] [DEBUG] http://127.0.0.1:5006 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:11:49,767] [WARNING] Failed to broadcast block to 127.0.0.1:5006. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:11:49,769] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5007
+[2024-11-19 16:11:49,772] [DEBUG] http://127.0.0.1:5007 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:11:49,773] [WARNING] Failed to broadcast block to 127.0.0.1:5007. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:11:49,774] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5008
+[2024-11-19 16:11:49,782] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:11:49,782] [DEBUG] Entered /receive_block endpoint
+[2024-11-19 16:11:49,783] [DEBUG] Received block data: {'user_id': '8374846', 'previous_hash': '0a2b32a3937b8309e47a765371deeb99402051c62d5bc88efa0371e1dd3ed5b9', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012909.6677077, 'consensus_node': 'node_5003'}
+[2024-11-19 16:11:49,783] [DEBUG] Received block data: {'user_id': '8374846', 'previous_hash': 'cc656f2edb330258fb9aacf9a8a966f63769eae020ab57493668ef4aca5ceccf', 'transaction': {'action': 'register'}, 'nonce': 0, 'commitment': None, 'timestamp': 1732012909.6657073, 'consensus_node': 'node_5006'}
+[2024-11-19 16:11:49,783] [DEBUG] Constructed new block: {
+    "user_id": "8374846",
+    "previous_hash": "0a2b32a3937b8309e47a765371deeb99402051c62d5bc88efa0371e1dd3ed5b9",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6677077,
+    "nonce": 0,
+    "hash": "0430d0f37678ca32cd971a75994d13cffbfbe08de1014fcc79b70cd1bcd010f6"
+}
+[2024-11-19 16:11:49,783] [DEBUG] Constructed new block: {
+    "user_id": "8374846",
+    "previous_hash": "cc656f2edb330258fb9aacf9a8a966f63769eae020ab57493668ef4aca5ceccf",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6657073,
+    "nonce": 0,
+    "hash": "fb0a727a0eb0ccc56b85b1adabfaccea19906be2f853b2074db3c017d556a320"
+}
+[2024-11-19 16:11:49,783] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "8374846",
+    "previous_hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6677077,
+    "nonce": 0,
+    "hash": "f81b8c262aa0dba6a974e63096ed9abb4a616fefe24605b17590fc6e08767289"
+}
+[2024-11-19 16:11:49,783] [DEBUG] [Blockchain] Last block retrieved: {
+    "user_id": "8374846",
+    "previous_hash": "a0d3f91a3ba4af9bd226415015d693456e6baff8802307e40b9b2b87493bcb18",
+    "transaction": {
+        "action": "register"
+    },
+    "commitment": null,
+    "timestamp": 1732012909.6677077,
+    "nonce": 0,
+    "hash": "f81b8c262aa0dba6a974e63096ed9abb4a616fefe24605b17590fc6e08767289"
+}
+[2024-11-19 16:11:49,784] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5004', 1: 'node_5008', 2: 'node_5009'}
+[2024-11-19 16:11:49,784] [DEBUG] [HRBC] Cluster leaders elected: {0: 'node_5004', 1: 'node_5008', 2: 'node_5009'}
+[2024-11-19 16:11:49,784] [DEBUG] [HRBC] Super node elected: node_5004
+[2024-11-19 16:11:49,784] [DEBUG] [HRBC] Super node elected: node_5004
+[2024-11-19 16:11:49,784] [ERROR] Invalid block received.
+[2024-11-19 16:11:49,784] [ERROR] Invalid block received.
+[2024-11-19 16:11:49,784] [INFO] 127.0.0.1 - - [19/Nov/2024 16:11:49] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:11:49,785] [INFO] 127.0.0.1 - - [19/Nov/2024 16:11:49] "[31m[1mPOST /receive_block HTTP/1.1[0m" 400 -
+[2024-11-19 16:11:49,798] [DEBUG] http://127.0.0.1:5008 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:11:49,799] [WARNING] Failed to broadcast block to 127.0.0.1:5008. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:11:49,800] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:5009
+[2024-11-19 16:11:49,803] [DEBUG] http://127.0.0.1:5009 "POST /receive_block HTTP/1.1" 400 33
+[2024-11-19 16:11:49,804] [WARNING] Failed to broadcast block to 127.0.0.1:5009. HTTP Error: 400 - BAD REQUEST
+[2024-11-19 16:11:49,804] [INFO] 127.0.0.1 - - [19/Nov/2024 16:11:49] "POST /register HTTP/1.1" 200 -
+[2024-11-19 16:11:49,826] [DEBUG] Entered /initiate_zkp endpoint
+[2024-11-19 16:11:49,827] [DEBUG] Received initiate_zkp data: {'userId': '8374846', 'T': 16}
+[2024-11-19 16:11:49,827] [INFO] Commitment T stored for user 8374846.
+[2024-11-19 16:11:49,828] [INFO] 127.0.0.1 - - [19/Nov/2024 16:11:49] "POST /initiate_zkp HTTP/1.1" 200 -
+[2024-11-19 16:11:49,847] [DEBUG] Entered /verify_zkp endpoint
+[2024-11-19 16:11:49,850] [DEBUG] Received verify_zkp data: {'userId': '8374846', 's': 16, 'challenge': 26}
+[2024-11-19 16:11:49,850] [INFO] ZKP verified for user 8374846. Token issued: {'user_id': '8374846', 'node_id': '127.0.0.1:5004', 'exp': datetime.datetime(2024, 11, 19, 10, 46, 49, 850707)}
+[2024-11-19 16:11:49,851] [INFO] 127.0.0.1 - - [19/Nov/2024 16:11:49] "POST /verify_zkp HTTP/1.1" 200 -

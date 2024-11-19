@@ -11,6 +11,3 @@ class Consensus(ABC):
     def process_new_block(self, blockchain, new_block):
         pass
 
-    @abstractmethod
-    def node_select(self, user_id, last_block, transaction, commitment, block_data, blockchain):
-        pass

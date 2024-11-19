@@ -1,14 +1,12 @@
 # hrbc.py
 import hashlib
 import json
-import threading
 import time
 import random
+import requests
 from consensus import Consensus
 from block import Block
-from node_communication import broadcast_block, broadcast_node_selection_complete
 import logging
-import traceback
 
 
 class HRBC(Consensus):
@@ -22,7 +20,6 @@ class HRBC(Consensus):
         self.reward = 10
         self.penalty = 20 
         self.decay_rate = 0.01  
-        self.node_select_result = (None, None) 
 
 
     def initialize_node_properties(self):
@@ -50,13 +47,11 @@ class HRBC(Consensus):
                 if proposed_block:
                     consensus_result = self.perform_inter_cluster_consensus(blockchain_instance, proposed_block)
                     if consensus_result:
-                        self.last_consensus_id = blockchain_instance.id  # Set the consensus ID
-                        # Broadcast the finalized block to all nodes for addition
-                        broadcast_block(blockchain_instance.peer_nodes, proposed_block, blockchain_instance.id)
+                        self.last_consensus_id = blockchain_instance.id
+                        logging.info(f"[HRBC] Consensus achieved. Block: {proposed_block}") # Log successful consensus
                         return proposed_block
                     else:
-                        logging.warning("[HRBC] Inter-cluster consensus failed.")
-                        return None  # Or handle the failure appropriately
+                        return None
                 else:
                     logging.warning("[HRBC] Block creation failed.")
                     return None  # Or handle the failure appropriately
@@ -199,9 +194,8 @@ class HRBC(Consensus):
 
         # Check if 2/3rds majority is reached
         if positive_votes >= two_thirds_majority -1: # Minus 1 for current node
-             logging.info("[HRBC] Inter-cluster consensus achieved.")
-             return True  # Consensus achieved
-
+            logging.info("[HRBC] Inter-cluster consensus achieved.")
+            return True  # Consensus achieved
         logging.warning("[HRBC] Inter-cluster consensus failed.")
         return False # Consensus failed
 
@@ -216,6 +210,7 @@ class HRBC(Consensus):
             return response.json()['vote'] # Return the vote from other node.
         except requests.exceptions.RequestException as e: # Catch any exceptions during communication
             logging.error(f"[HRBC] Error requesting vote from {node_id}: {e}")
+            logging.debug(traceback.format_exc())  # Detailed traceback
             return False  # Treat communication errors as negative votes
 
     def get_node_url(self, node_id):
