@@ -319,6 +319,25 @@ def set_params():
     # Implement parameter setting logic here
     return jsonify({"message": "Parameters set successfully"}), 200    
 
+# app.py
+@app.route('/vote_on_block', methods=['POST'])
+def vote_on_block():
+    try:
+        data = request.get_json()
+        block_data = data.get('block') # Get the block data from request
+
+        if block_data:
+            block = Block(**block_data) # Recreate the block instance using kwargs
+
+        vote = blockchain.consensus.vote_on_block(block) # Call the consensus algo's method
+        logging.debug(f"Vote requested for block: {block.hash}, Vote: {vote}")
+        return jsonify({'vote': vote}), 200
+
+    except Exception as e:
+        logging.error(f"Error during voting: {e}")
+        return jsonify({'error': str(e)}), 500
+    
+
 if __name__ == '__main__':
     # Default to port 5000 if no argument is given
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 5000

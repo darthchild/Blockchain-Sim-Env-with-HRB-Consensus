@@ -14,15 +14,15 @@ import traceback
 class HRBC(Consensus):
     def __init__(self, blockchain):
         super().__init__()
-        self.blockchain = blockchain  # Reference to the blockchain object
+        self.blockchain = blockchain  # Ref to the blockchain object
         self.node_properties = self.initialize_node_properties()
         self.clusters = self.form_clusters()
         self.cluster_leaders = self.elect_cluster_leaders()
         self.super_node = self.elect_super_node()
         self.reward = 10
-        self.penalty = 20  # Penalty for misbehavior
-        self.decay_rate = 0.01  # Reputation decay rate per block
-        self.node_select_result = (None, None)  # For storing the mining results
+        self.penalty = 20 
+        self.decay_rate = 0.01  
+        self.node_select_result = (None, None) 
 
 
     def initialize_node_properties(self):
@@ -30,8 +30,8 @@ class HRBC(Consensus):
         node_properties = {}
         for node_id in self.blockchain.reputation_tokens.keys():
             node_properties[node_id] = {
-                'uptime': random.uniform(0.9, 1.0),  # Uptime percentage (90%-100%)
-                'network_proximity': random.uniform(0.0, 1.0),  # Proximity (0 is closest)
+                'uptime': random.uniform(0.9, 1.0),  
+                'network_proximity': random.uniform(0.0, 1.0), 
             }
         logging.debug(f"[HRBC] Node properties initialized: {node_properties}")
         return node_properties
@@ -42,27 +42,31 @@ class HRBC(Consensus):
         cluster_id = self.get_cluster_id(node_id)
         logging.debug(f"[HRBC] initiate_consensus called: node_id={node_id}, cluster_id={cluster_id}, transactions={transactions}")
 
-        if cluster_id is not None and node_id == self.cluster_leaders[cluster_id]:
-            proposed_block = self.create_block(user_id, last_block.hash, transactions, commitment)
-            logging.debug(f"[HRBC] Proposed block created: {proposed_block}")
+        if cluster_id is not None:
+            if node_id == self.cluster_leaders[cluster_id]:  # Leader initiates consensus
+                proposed_block = self.create_block(user_id, last_block.hash, transactions, commitment)
+                logging.debug(f"[HRBC] Proposed block created: {proposed_block}")
 
-
-            if proposed_block:
-                consensus_result = self.perform_inter_cluster_consensus(blockchain_instance, proposed_block)
-                logging.debug(f"[HRBC] Inter-cluster consensus result: {consensus_result}, votes = {self.votes}") # Assuming 'self.votes' tracks votes
-
-                if consensus_result:
-                    self.last_consensus_id = blockchain_instance.id
-                    return proposed_block
+                if proposed_block:
+                    consensus_result = self.perform_inter_cluster_consensus(blockchain_instance, proposed_block)
+                    if consensus_result:
+                        self.last_consensus_id = blockchain_instance.id  # Set the consensus ID
+                        # Broadcast the finalized block to all nodes for addition
+                        broadcast_block(blockchain_instance.peer_nodes, proposed_block, blockchain_instance.id)
+                        return proposed_block
+                    else:
+                        logging.warning("[HRBC] Inter-cluster consensus failed.")
+                        return None  # Or handle the failure appropriately
                 else:
-                    logging.warning("[HRBC] Inter-cluster consensus failed.")
-                    return None
-            else:
-                logging.warning("[HRBC] Block creation failed.")
-                return None
+                    logging.warning("[HRBC] Block creation failed.")
+                    return None  # Or handle the failure appropriately
+
+
+            else: # Member waits for the leader to propose the block.
+                return None # If not leader, return None immediately and wait for a broadcasted block.
         else:
-            logging.debug(f"[HRBC] Node {node_id} is not the cluster leader.")  # Indicate non-leader behavior
-            return None # Return None if consensus is not successful
+            logging.warning(f"[HRBC] Node {node_id} not part of any cluster.")
+            return None # Or handle the failure as neede
 
     def form_clusters(self):
         """Forms clusters based on network proximity."""
@@ -111,59 +115,13 @@ class HRBC(Consensus):
          block_string = json.dumps(block_data, sort_keys=True).encode()
          return hashlib.sha256(block_string).hexdigest()
 
-
-
-    def node_select(self, user_id, last_block, transaction, commitment, block_data, blockchain):
-        """Handles node selection and block mining within a cluster."""
-        node_id = blockchain.id
-        self.stop_event.clear() # Clear any previous stop signals
-
-        # 1. Intra-cluster Consensus
-        for cluster_id, nodes in self.clusters.items():
-            if node_id in nodes:
-                leader_id = self.cluster_leaders[cluster_id]
-                if node_id == leader_id:
-                    logging.debug(f"[HRBC] Node {node_id} is the cluster leader for cluster {cluster_id}")
-                    new_block = self.mine_block(user_id, last_block, transaction, commitment, block_data)
-
-                    if new_block: # Intra-cluster voting successful
-                        self.node_select_result = (new_block, node_id)
-                        return new_block, node_id
-                    else:
-                        self.node_select_result = (None, None)
-                        return None, None # Mining failed or stopped
-                elif not self.stop_event.is_set(): # Participate in voting if not the leader
-                    vote = self.vote_on_block(new_block)
-                    #... (Handle vote and consensus within the cluster)
-                    logging.debug(f"[HRBC] Voting results (Simulation): {vote}") 
-                else:
-                    logging.debug(f"[HRBC] Mining/voting stopped for node {node_id} in cluster {cluster_id}")
-                    self.node_select_result = (None, None)
-                    return None, None
-        self.node_select_result = (None, None)
-        return None, None # Node not in any cluster
-
-
-    def mine_block(self, user_id, last_block, transaction, commitment, block_data):
-        """Mines a new block (Simplified PoW for demonstration)."""
-        nonce = 0
-        while not self.stop_event.is_set():  # Check for stop signal
-            block_data['nonce'] = nonce
-            block_data['timestamp'] = time.time()
-            block_hash = self.calculate_hash(block_data)
-            if block_hash.startswith('0' * 4): # Simple PoW condition
-                new_block = Block(user_id, last_block.hash, transaction, commitment, timestamp=block_data['timestamp'], nonce=nonce)
-                logging.info(f"[HRBC] Block mined by {self.blockchain.id}: {new_block}")
-                broadcast_node_selection_complete(self.blockchain.peer_nodes, self.blockchain.id, time.time()) # Notify others
-                return new_block
-            nonce += 1
-        return None  # Mining stopped
-
-
-
     def vote_on_block(self, block):
-        """Simulates voting on a block within a cluster."""
-        return random.choice([True, True, True, False]) # Example: 75% chance of a positive vote
+        """Votes on a block based on simplified validation."""  # Simplified logic
+        # In a real implementation, you'll have more sophisticated validation checks
+        # ... Add any necessary validation logic
+        is_valid = random.random() < 0.8  # Simulate a validation check (80% success rate)
+        logging.debug(f"[HRBC] Node {self.blockchain.id} voted {'YES' if is_valid else 'NO'} on block {block.hash}")
+        return is_valid  # Return True if valid, False otherwise
 
 
     def validate_block(self, blockchain, new_block, consensus_id):
@@ -222,3 +180,49 @@ class HRBC(Consensus):
             if node_id in nodes:
                 return cluster_id
         return None
+    
+    def perform_inter_cluster_consensus(self, blockchain_instance, proposed_block):
+        """Performs inter-cluster consensus using majority voting."""
+
+        positive_votes = 0
+        total_cluster_leaders = len(self.cluster_leaders)
+        two_thirds_majority = (2 * total_cluster_leaders) // 3 # calculate the 2/3rd's majority
+
+        #Collect votes from all cluster leaders
+        for cluster_id, leader_id in self.cluster_leaders.items():
+            if leader_id != blockchain_instance.id:  # Exclude self (already positive vote as the proposer)
+                vote = self.request_vote(leader_id, proposed_block)
+                logging.debug(f"[HRBC] Vote received from {leader_id}: {vote}")
+                if vote:
+                    positive_votes += 1
+
+
+        # Check if 2/3rds majority is reached
+        if positive_votes >= two_thirds_majority -1: # Minus 1 for current node
+             logging.info("[HRBC] Inter-cluster consensus achieved.")
+             return True  # Consensus achieved
+
+        logging.warning("[HRBC] Inter-cluster consensus failed.")
+        return False # Consensus failed
+
+
+    def request_vote(self, node_id, block):
+        """Requests a vote from another cluster leader."""
+        url = f'http://{self.get_node_url(node_id)}/vote_on_block' # Use appropriate URL
+        data = {'block': block.__dict__}  # Send necessary block information
+        try:
+            response = requests.post(url, json=data, timeout=5) # Send vote request. Timeout after 5 seconds
+            response.raise_for_status() # Raise HTTPError for bad responses (4xx or 5xx)
+            return response.json()['vote'] # Return the vote from other node.
+        except requests.exceptions.RequestException as e: # Catch any exceptions during communication
+            logging.error(f"[HRBC] Error requesting vote from {node_id}: {e}")
+            return False  # Treat communication errors as negative votes
+
+    def get_node_url(self, node_id):
+       """Gets the URL for a given node ID."""
+       # Implement the logic to find the node's URL based on the node_id.
+       #Modify this according to how your nodes' URLs are structured.
+       for peer in self.blockchain.peer_nodes:
+           if node_id.split('_')[1] == peer.split(':')[1]:
+               return peer
+       return None

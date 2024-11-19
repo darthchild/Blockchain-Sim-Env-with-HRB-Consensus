@@ -68,20 +68,20 @@ class Blockchain:
         return last_block
 
     def add_block(self, user_id, transaction, commitment):
-        last_block = self.get_last_block()
-        if self.pending_transactions: # Check and add pending transactions 
-            transaction = self.pending_transactions
-            self.pending_transactions = []
+     last_block = self.get_last_block()
+     if self.pending_transactions:  # Check and add pending transactions
+         transaction = self.pending_transactions
+         self.pending_transactions = []  # Clear pending transactions
 
-        new_block = self.consensus.initiate_consensus(self, user_id, last_block, transaction, commitment)
+     new_block = self.consensus.initiate_consensus(self, user_id, last_block, transaction, commitment)
 
-        if new_block:  # Consensus successful
-            self.consensus.process_new_block(self, new_block)  # Use consensus method, NOT blockchain.chain.append()
-            logging.info(f"[Blockchain] Block added by {user_id}")
-            return new_block, self.consensus.last_consensus_id  
-        else:
-            logging.warning("[Blockchain] Consensus failed or block creation failed.")
-            return None, None # Return None, None to signal failure
+     if new_block:
+         self.consensus.process_new_block(self, new_block)  # Call consensus class's implementation of this method.
+         return new_block, self.id
+
+     else:
+         logging.warning("[Blockchain] Consensus failed or block creation failed.")
+         return None, None
 
 
     def update_metrics(self, new_block):
